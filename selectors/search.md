@@ -28,7 +28,7 @@ If `<key>` is:
 
 The value is the expected value for the check to pass.
 
-Note that dasel will stringy values prior to checking if they match. 
+Note that dasel will stringy values prior to checking if they match.
 
 ## Example
 
@@ -79,6 +79,4 @@ dasel select -f input.json -m '.(?:.name.last=Wright).name.first'
 "Tom"
 "Jim"
 ```
-
-
 

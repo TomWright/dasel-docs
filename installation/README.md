@@ -91,5 +91,3 @@ You may need to prefix the command with `GO111MODULE=on` in order for this to wo
 go install github.com/tomwright/dasel/cmd/dasel@master
 ```
 
-
-

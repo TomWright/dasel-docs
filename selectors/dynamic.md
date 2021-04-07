@@ -22,7 +22,7 @@ The key defines which property/selector we should use to extract a value.
 
 The value is the expected value for the check to pass.
 
-Note that dasel will stringy values prior to checking if they match. 
+Note that dasel will stringy values prior to checking if they match.
 
 ### Multiple conditions
 
@@ -120,6 +120,4 @@ dasel -f advanced_input.json '.users.(.addresses.(.primary=true).number=123).nam
 
 "Tom"
 ```
-
-
 

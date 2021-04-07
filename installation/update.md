@@ -18,6 +18,3 @@ To override this warning and update the development version to the latest releas
 dasel update --dev
 ```
 
-  
-
-

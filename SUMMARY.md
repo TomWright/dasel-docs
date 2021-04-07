@@ -35,3 +35,10 @@
 * [Memory usage](notes/memory-usage.md)
 * [Converting between formats](notes/converting-between-formats.md)
 
+## Examples
+
+* [JQ to Dasel](examples/jq-to-dasel.md)
+* [YQ to Dasel](examples/yq-to-dasel.md)
+* [XML](examples/xml.md)
+* [Filter JSON API results](examples/filter-json-api-results.md)
+

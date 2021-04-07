@@ -30,7 +30,7 @@ func main() {
 
     result, _ := rootNode.Query(".[0].name")
     printNodeValue(result) // Tom
-    
+
     results, _ := rootNode.QueryMultiple(".[*].name")
     printNodeValue(results...) // Tom\nJim
 
@@ -39,7 +39,7 @@ func main() {
 
     _ = rootNode.PutMultiple(".[*].name", "Joe")
     printNodeValue(rootNode) // [map[name:Joe] map[name:Joe]]
-    
+
     outputBytes, _ := json.Marshal(rootNode.InterfaceValue())
     fmt.Println(string(outputBytes)) // [{"name":"Joe"},{"name":"Joe"}]
 }

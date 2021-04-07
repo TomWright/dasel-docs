@@ -110,5 +110,3 @@ Column deletion is not supported.
 
 This outputs the data using `fmt.Sprint(x)`, displaying whatever underlying value is present as a string.
 
-### 
-

@@ -4,7 +4,7 @@
 
 Tells dasel to select or put multiple items.
 
-This causes the [dynamic](https://github.com/TomWright/dasel#dynamic) selector to return all matching results rather than the first, and enables the [any index](https://github.com/TomWright/dasel#any-index) selector.
+This causes the [dynamic](../../selectors/dynamic.md) selector to return all matching results rather than the first, and enables the [all indexes](../../selectors/all-indexes.md) selector.
 
 All matches will be output on a new line.
 

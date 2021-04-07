@@ -74,7 +74,7 @@ Omit the types and values to create an empty object/map.
         <p>Specify the parser to use when reading the input data.</p>
         <p>This is required if you are piping in data, otherwise dasel will use the
           given file extension to guess which parser to use.</p>
-        <p>See <a href="https://github.com/TomWright/dasel#supported-file-types">supported parsers</a>.</p>
+        <p>See <a href="supported-file-types.md">supported file types</a>.</p>
       </td>
     </tr>
     <tr>
@@ -84,7 +84,7 @@ Omit the types and values to create an empty object/map.
         <p>Specify the parser to use when writing the output data.</p>
         <p>If not provided dasel will attempt to use the <code>--out</code> and <code>--read</code> flags
           to determine which parser to use.</p>
-        <p>See <a href="https://github.com/TomWright/dasel#supported-file-types">supported parsers</a>.</p>
+        <p>See <a href="supported-file-types.md">supported file types</a>.</p>
       </td>
     </tr>
     <tr>
@@ -105,7 +105,7 @@ Omit the types and values to create an empty object/map.
       <td style="text-align:left"><code>-s</code>, <code>--selector</code>, <code>&lt;selector&gt;</code>
       </td>
       <td style="text-align:left">
-        <p>Specify the selector to use. See <a href="https://github.com/TomWright/dasel#selectors">Selectors</a> for
+        <p>Specify the selector to use. See <a href="../selectors/introduction.md">selectors</a> for
           more information.</p>
         <p>If no selector flag is given, dasel assumes the first argument given is
           the selector.</p>
