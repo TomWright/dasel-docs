@@ -1,0 +1,84 @@
+# Search
+
+## Description
+
+Search selectors recursively search all the data below the current node and return all of the results.
+
+## Usage
+
+{% hint style="info" %}
+This must be used in conjunction with the `-m`, `--multiple` flag.
+{% endhint %}
+
+```bash
+.(?:<key>=<value>)
+```
+
+### Key
+
+The key defines which property/selector we should use to extract a value.
+
+If `<key>` is:
+
+* `.` or `value` - dasel checks if the current nodes value is `<value>`.
+* `_` or `keyValue` - dasel checks if the key/name/index of the current node is `<value>`.
+* Else dasel uses the key as a selector itself and compares the result against `<value>`.
+
+### Value
+
+The value is the expected value for the check to pass.
+
+Note that dasel will stringy values prior to checking if they match. 
+
+## Example
+
+{% code title="input.json" %}
+```javascript
+{
+  "users": [
+    {
+      "primary": true,
+      "name": {
+        "first": "Tom",
+        "last": "Wright"
+      }
+    },
+    {
+      "primary": false,
+      "extra": {
+        "name": {
+          "first": "Joe",
+          "last": "Blogs"
+        }
+      },
+      "name": {
+        "first": "Jim",
+        "last": "Wright"
+      }
+    }
+  ]
+}
+```
+{% endcode %}
+
+### Search by key name
+
+```bash
+dasel select -f input.json -m '.(?:-=name).first'
+
+"Tom"
+"Joe"
+"Jim"
+```
+
+### Search by selector
+
+```bash
+dasel select -f input.json -m '.(?:.name.last=Wright).name.first'
+
+"Tom"
+"Jim"
+```
+
+
+
