@@ -6,7 +6,7 @@ The length selector can be used to return the length of the current node.
 
 ## Usage
 
-```bash
+```text
 .[#]
 ```
 
