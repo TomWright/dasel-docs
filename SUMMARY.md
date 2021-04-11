@@ -28,6 +28,7 @@
 * [All indexes](selectors/all-indexes.md)
 * [Dynamic](selectors/dynamic.md)
 * [Search](selectors/search.md)
+* [Length](selectors/length.md)
 
 ## Notes
 

@@ -24,6 +24,20 @@ The value is the expected value for the check to pass.
 
 Note that dasel will stringy values prior to checking if they match.
 
+### Comparisons
+
+Dasel supports the following comparison operators:
+
+* `>=`
+* `>`
+* `=`
+* `<`
+* `<=`
+
+{% hint style="info" %}
+Prior to `v1.14.0` dasel only supports to `=` operator.
+{% endhint %}
+
 ### Multiple conditions
 
 You can use multiple dynamic selectors within the same part to perform `AND` logic.
