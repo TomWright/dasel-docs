@@ -6,6 +6,8 @@ This command allows you to modify data at a given selector.
 
 It generally works in the same way as [put](put.md), but allows you to write entire maps with a single command.
 
+Note that `put object` will completely overwrite any existing data at the given selector.
+
 ## Usage
 
 ```bash

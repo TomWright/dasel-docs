@@ -6,6 +6,8 @@ This command allows you to modify data at a given selector.
 
 It generally works in the same way as [put](put.md), but allows you to write entire documents with a single command.
 
+Note that `put document` will completely overwrite any existing data at the given selector.
+
 ## Usage
 
 ```bash
