@@ -120,6 +120,11 @@ dasel select -f <file> <selector>
         </ul>
       </td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>--merge-input-documents</code>
+      </td>
+      <td style="text-align:left">See <a href="flags/merge-input-documents.md">merge input documents</a>.</td>
+    </tr>
   </tbody>
 </table>
 

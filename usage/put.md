@@ -129,6 +129,11 @@ If `--file` is used without `--out` then the source file will be updated.
       <td style="text-align:left">This tells dasel to output compact data where possible. E.g. not pretty
         printing JSON.</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>--merge-input-documents</code>
+      </td>
+      <td style="text-align:left">See <a href="flags/merge-input-documents.md">merge input documents</a>.</td>
+    </tr>
   </tbody>
 </table>
 
