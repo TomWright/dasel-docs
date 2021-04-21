@@ -16,6 +16,7 @@
 * [Flags](usage/flags/README.md)
   * [Multiple](usage/flags/multiple.md)
   * [Null](usage/flags/null.md)
+  * [Merge Input Documents](usage/flags/merge-input-documents.md)
 * [Supported file types](usage/supported-file-types.md)
 
 ## Selectors
