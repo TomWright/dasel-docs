@@ -13,6 +13,7 @@
 * [Put](usage/put.md)
 * [Put object](usage/put-object.md)
 * [Put document](usage/put-document.md)
+* [Delete](usage/delete.md)
 * [Flags](usage/flags/README.md)
   * [Multiple](usage/flags/multiple.md)
   * [Null](usage/flags/null.md)
