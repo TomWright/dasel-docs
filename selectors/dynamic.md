@@ -18,6 +18,12 @@ You can use a selector as the key to create more complex conditions.
 
 The key defines which property/selector we should use to extract a value.
 
+If `<key>` is:
+
+* `.` or `value` - dasel checks if the current nodes value is `<value>`.
+* `-` or `keyValue` - dasel checks if the key/name/index of the current node is `<value>`.
+* Else dasel uses the key as a selector itself and compares the result against `<value>`.
+
 ### Value
 
 The value is the expected value for the check to pass.
@@ -28,15 +34,14 @@ Note that dasel will stringy values prior to checking if they match.
 
 Dasel supports the following comparison operators:
 
-* `>=`
-* `>`
-* `=`
-* `<`
-* `<=`
-
-{% hint style="info" %}
-Prior to `v1.14.0` dasel only supports to `=` operator.
-{% endhint %}
+| Operator | Supported since |
+| :--- | :--- |
+| `=` | `v0.0.4` |
+| `>=` | `v1.14.0` |
+| `>` | `v1.14.0` |
+| `<` | `v1.14.0` |
+| `<=` | `v1.14.0` |
+| `!=` | `v1.17.0` |
 
 ### Multiple conditions
 
