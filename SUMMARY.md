@@ -15,6 +15,7 @@
 * [Put document](usage/put-document.md)
 * [Delete](usage/delete.md)
 * [Flags](usage/flags/README.md)
+  * [Format](usage/flags/format.md)
   * [Multiple](usage/flags/multiple.md)
   * [Null](usage/flags/null.md)
   * [Merge Input Documents](usage/flags/merge-input-documents.md)
