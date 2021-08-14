@@ -45,8 +45,8 @@ dasel select -f <file> <selector>
       </td>
       <td style="text-align:left">
         <p>Specify the parser to use when writing the output data.</p>
-        <p>If not provided dasel will attempt to use the <code>--out</code> and <code>--read</code> flags
-          to determine which parser to use.</p>
+        <p>If not provided dasel will attempt to use the<code>--read</code> flag to
+          determine which parser to use.</p>
         <p>See <a href="supported-file-types.md">supported file types</a>.</p>
       </td>
     </tr>
