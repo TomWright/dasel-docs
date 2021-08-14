@@ -130,6 +130,17 @@ dasel select -f <file> <selector>
       </td>
       <td style="text-align:left">See <a href="flags/format.md">format</a>.</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>--colour</code>
+      </td>
+      <td style="text-align:left">Colourise output.</td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>--color</code>
+      </td>
+      <td style="text-align:left">Alias of <code>--colour.</code>
+      </td>
+    </tr>
   </tbody>
 </table>
 
