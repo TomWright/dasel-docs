@@ -42,12 +42,18 @@ If `--file` is used without `--out` then the source file will be updated.
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><code>&lt;value&gt;</code>
+      <td style="text-align:left">
+        <p><code>&lt;value&gt;</code>
+        </p>
+        <p><code>-v</code>, <code>--value</code>
+        </p>
       </td>
       <td style="text-align:left">
         <p>The value to write.</p>
         <p>Dasel will parse this value as a string, int, or bool from this value
           depending on the given <code>type</code>.</p>
+        <p>If no <code>-v</code>, <code>--value</code> flag is given, the value is assumed
+          to be the last argument.</p>
         <p>This is required.</p>
       </td>
     </tr>
