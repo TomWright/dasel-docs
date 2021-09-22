@@ -53,14 +53,14 @@ Don't forget to put the binary somewhere in your `PATH`.
 {% tabs %}
 {% tab title="Linux \(64 bit\)" %}
 ```text
-curl -s https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep linux_amd64 | cut -d '"' -f 4 | wget -qi - && mv dasel_linux_amd64 dasel && chmod +x dasel
+curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep linux_amd64 | cut -d '"' -f 4)" -L -o dasel && chmod +x dasel
 mv ./dasel /usr/local/bin/dasel
 ```
 {% endtab %}
 
 {% tab title="Mac OS \(64 bit\)" %}
 ```text
-curl "$(curl -s https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep darwin_amd64 | cut -d '"' -f 4)" -L -o dasel && chmod +x dasel
+curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep darwin_amd64 | cut -d '"' -f 4)" -L -o dasel && chmod +x dasel
 mv ./dasel /usr/local/bin/dasel
 ```
 {% endtab %}
