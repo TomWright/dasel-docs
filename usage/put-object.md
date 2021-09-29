@@ -134,6 +134,11 @@ Omit the types and values to create an empty object/map.
       </td>
       <td style="text-align:left">See <a href="flags/merge-input-documents.md">merge input documents</a>.</td>
     </tr>
+    <tr>
+      <td style="text-align:left"><code>--escape-html</code>
+      </td>
+      <td style="text-align:left">See <a href="flags/escape-html.md">escape html</a>.</td>
+    </tr>
   </tbody>
 </table>
 
