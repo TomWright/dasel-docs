@@ -33,6 +33,7 @@
 * [Dynamic](selectors/dynamic.md)
 * [Search](selectors/search.md)
 * [Length](selectors/length.md)
+* [Type](selectors/type.md)
 
 ## Notes
 
@@ -46,4 +47,3 @@
 * [YQ to Dasel](examples/yq-to-dasel.md)
 * [XML](examples/xml.md)
 * [Filter JSON API results](examples/filter-json-api-results.md)
-
