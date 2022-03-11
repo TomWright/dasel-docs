@@ -42,6 +42,20 @@ asdf install dasel <version>
 asdf global dasel <version>
 ```
 
+## Nix
+
+To install using the [Nix Package Manager](https://nixos.org/) (for non-NixOS)
+
+```bash
+nix-env -iA nixpkgs.dasel
+```
+
+Or NixOS:
+
+```bash
+nix-env -iA nixos.dasel
+```
+
 ## Manual
 
 You can download a compiled executable from the [latest release](https://github.com/TomWright/dasel/releases/latest).
