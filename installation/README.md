@@ -25,15 +25,15 @@ echo '{"name": "Tom"}' | docker run -i --rm ghcr.io/tomwright/dasel:latest -p js
 
 New image versions are built and pushed automatically as part of the CI/CD pipeline in Github actions.
 
-| Tag | Description |
-| :--- | :--- |
-| `latest` | The latest release version. |
-| `development` | The latest build from `master` branch. |
-| `v*.*.*` | The specified dasel release. E.g. `v1.13.6`. |
+| Tag           | Description                                  |
+| ------------- | -------------------------------------------- |
+| `latest`      | The latest release version.                  |
+| `development` | The latest build from `master` branch.       |
+| `v*.*.*`      | The specified dasel release. E.g. `v1.13.6`. |
 
 ## ASDF
 
-Using [asdf-vm](https://asdf-vm.com/) and the [asdf-dasel plugin](https://github.com/asdf-community/asdf-dasel?ts=4).
+Using [asdf-vm](https://asdf-vm.com) and the [asdf-dasel plugin](https://github.com/asdf-community/asdf-dasel?ts=4).
 
 ```bash
 asdf plugin add dasel https://github.com/asdf-community/asdf-dasel.git
@@ -44,7 +44,7 @@ asdf global dasel <version>
 
 ## Nix
 
-To install using the [Nix Package Manager](https://nixos.org/) (for non-NixOS)
+To install using the [Nix Package Manager](https://nixos.org) (for non-NixOS)
 
 ```bash
 nix-env -iA nixpkgs.dasel
@@ -65,16 +65,16 @@ Don't forget to put the binary somewhere in your `PATH`.
 {% endhint %}
 
 {% tabs %}
-{% tab title="Linux \(64 bit\)" %}
-```text
-curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep linux_amd64 | cut -d\" -f 4)" -L -o dasel && chmod +x dasel
+{% tab title="Linux (64 bit)" %}
+```
+curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep linux_amd64 | grep -v .gz | cut -d\" -f 4)" -L -o dasel && chmod +x dasel
 mv ./dasel /usr/local/bin/dasel
 ```
 {% endtab %}
 
-{% tab title="Mac OS \(64 bit\)" %}
-```text
-curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep darwin_amd64 | cut -d\" -f 4)" -L -o dasel && chmod +x dasel
+{% tab title="Mac OS (64 bit)" %}
+```
+curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep -v .gz | grep darwin_amd64 | cut -d\" -f 4)" -L -o dasel && chmod +x dasel
 mv ./dasel /usr/local/bin/dasel
 ```
 {% endtab %}
@@ -101,7 +101,6 @@ You can `go install` the `cmd/dasel` package to build and install dasel for you.
 You may need to prefix the command with `GO111MODULE=on` in order for this to work.
 {% endhint %}
 
-```text
+```
 go install github.com/tomwright/dasel/cmd/dasel@master
 ```
-
