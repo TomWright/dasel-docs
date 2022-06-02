@@ -1,6 +1,6 @@
 # XML
 
-XML has some slight differences \(such as attributes\) that should be documented.
+XML has some slight differences (such as attributes) that should be documented.
 
 See [XML file format](../usage/supported-file-types.md#xml) for more information.
 
@@ -16,7 +16,7 @@ echo '<data>
     <users primary="false">
         <name>Frank</name>
     </users>
-</data>' | dasel -p xml '.data.users[0].-primary'
+</data>' | dasel -p xml '.data.users.[0].-primary'
 true
 ```
 
@@ -35,4 +35,3 @@ echo '<data>
 </data>' | dasel -p xml '.data.users.(-primary=true).name'
 Tom
 ```
-
