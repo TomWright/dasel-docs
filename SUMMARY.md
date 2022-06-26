@@ -14,6 +14,7 @@
 * [Put object](usage/put-object.md)
 * [Put document](usage/put-document.md)
 * [Delete](usage/delete.md)
+* [Validate](usage/validate.md)
 * [Flags](usage/flags/README.md)
   * [Escape HTML](usage/flags/escape-html.md)
   * [Format](usage/flags/format.md)
