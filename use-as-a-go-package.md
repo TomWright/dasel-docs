@@ -57,3 +57,54 @@ Just know that when using the command-line tool the `-m`,`--multiple` flag tells
 
 If the information provided here isn't good enough please raise an issue/discussion.
 
+## Struct types
+
+As of `v1.25.0` dasel supports dasel nodes containing struct values.
+
+[Example usage](https://github.com/TomWright/dasel/blob/145555353236caf73607d3eb07132c8efe842db1/node\_test.go#L681):
+
+```go
+type user struct {
+    Name string
+    Age  int
+}
+value := []user{
+    {
+        Name: "Tom",
+        Age:  27,
+    },
+    {
+		Name: "Jim",
+        Age:  27,
+    },
+    {
+        Name: "Amelia",
+        Age:  25,
+    },
+}
+
+err := dasel.New(value).PutMultiple(".[*].Name", "Frank")
+if err != nil {
+    t.Errorf("unexpected query error: %s", err)
+    return
+}
+
+exp := []user{
+    {
+        Name: "Frank",
+        Age:  27,
+    },
+    {
+        Name: "Frank",
+        Age:  27,
+    },
+    {
+        Name: "Frank",
+        Age:  25,
+    },
+}
+
+if !reflect.DeepEqual(exp, value) {
+    t.Errorf("expected %v, got %v", exp, value)
+}
+```
