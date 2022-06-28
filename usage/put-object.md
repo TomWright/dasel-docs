@@ -10,7 +10,7 @@ Note that `put object` will completely overwrite any existing data at the given 
 
 ## Usage
 
-```bash
+```shell
 dasel put object -f <file> -t <type> -t <type> <selector> <value:key=value> <value:key=value>
 ```
 
@@ -146,17 +146,10 @@ Omit the types and values to create an empty object/map.
 
 ### Put object
 
-```bash
-echo "" |
-dasel put object -p yaml -t string -t int "my.favourites" colour=red number=3
-```
-
-Results in the following:
-
-```yaml
+```shell
+$ echo "" | dasel put object -p yaml -t string -t int "my.favourites" colour=red number=3
 my:
   favourites:
     colour: red
     number: 3
 ```
-

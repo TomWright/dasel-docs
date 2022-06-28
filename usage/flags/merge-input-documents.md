@@ -14,7 +14,7 @@ Pass the `--merge-input-documents` to [select](../select.md) or [put](../put.md)
 
 With the flag:
 
-```text
+```shell
 $ echo 'foo: bar
 ---
 baz: biz' | dasel -r yaml -w json --merge-input-documents .
@@ -26,12 +26,11 @@ baz: biz' | dasel -r yaml -w json --merge-input-documents .
     "baz": "biz"
   }
 ]
-
 ```
 
 Without the flag:
 
-```text
+```shell
 $ echo 'foo: bar
 ---
 baz: biz' | dasel -r yaml -w json .
@@ -57,21 +56,16 @@ c: `{"number": 3}`
 
 Becomes:
 
-```text
-[
-    {"number": 1},
-    {"number": 2},
-    {"number": 3}
-]
+```json
+[{ "number": 1 }, { "number": 2 }, { "number": 3 }]
 ```
 
 The use of "merge" here could be mistaken in that you may expect the following output:
 
-```text
+```json
 {
-    "number": 3
+  "number": 3
 }
 ```
 
 If you are looking for the 2nd output above, see the [merge feature request](https://github.com/TomWright/dasel/issues/133).
-

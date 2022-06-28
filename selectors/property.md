@@ -6,14 +6,13 @@ A property selector is the most common selector, and is used to select a specifi
 
 ## Usage
 
-```bash
+```shell
 .propertyName
 ```
 
 ## Example
 
-```bash
-echo '{"name": "Tom"}' | dasel -p json '.name'
+```shell
+$ echo '{"name": "Tom"}' | dasel -p json '.name'
 Tom
 ```
-

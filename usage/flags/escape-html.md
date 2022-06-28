@@ -18,7 +18,7 @@ Supported in JSON write parser since v1.21.0.
 
 ### True
 
-```bash
+```shell
 $ echo '{"user": "tom <asd>"}' | dasel -r json --escape-html=true .
 {
   "user": "tom \u003casd\u003e"
@@ -27,10 +27,9 @@ $ echo '{"user": "tom <asd>"}' | dasel -r json --escape-html=true .
 
 ### False
 
-```bash
+```shell
 $ echo '{"user": "tom <asd>"}' | dasel -r json --escape-html=false .
 {
   "user": "tom <asd>"
 }
 ```
-

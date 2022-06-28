@@ -16,16 +16,16 @@ Pass the `-m`, `--multiple` flag to [select](../select.md) or [put](../put.md) c
 
 ### Select
 
-```bash
-echo '[{"name": "Tom"}, {"name": "Jim"}]' | dasel -p json -m '.[*].name'
+```shell
+$ echo '[{"name": "Tom"}, {"name": "Jim"}]' | dasel -p json -m '.[*].name'
 "Tom"
 "Jim"
 ```
 
 ### Put
 
-```bash
-echo '[{"name": "Tom"}, {"name": "Jim"}]' | dasel put string -p json -m '.[*].name' Frank
+```shell
+$ echo '[{"name": "Tom"}, {"name": "Jim"}]' | dasel put string -p json -m '.[*].name' Frank
 [
   {
     "name": "Frank"
@@ -35,4 +35,3 @@ echo '[{"name": "Tom"}, {"name": "Jim"}]' | dasel put string -p json -m '.[*].na
   }
 ]
 ```
-

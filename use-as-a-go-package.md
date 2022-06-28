@@ -6,7 +6,7 @@ Dasel can be imported and used just like any other go package. This can be very 
 
 As with any other go package, just use `go get`.
 
-```bash
+```shell
 go get github.com/tomwright/dasel
 ```
 
@@ -56,4 +56,3 @@ From then on the rest of the docs and comments should be enough to get you going
 Just know that when using the command-line tool the `-m`,`--multiple` flag tells dasel to use `QueryMultiple`/`PutMultiple` instead of `Query`/`Put`.
 
 If the information provided here isn't good enough please raise an issue/discussion.
-

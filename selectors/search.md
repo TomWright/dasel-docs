@@ -10,7 +10,7 @@ Search selectors recursively search all the data below the current node and retu
 This must be used in conjunction with the `-m`, `--multiple` flag.
 {% endhint %}
 
-```bash
+```shell
 .(?:<key>=<value>)
 ```
 
@@ -20,9 +20,9 @@ The key defines which property/selector we should use to extract a value.
 
 If `<key>` is:
 
-* `.` or `value` - dasel checks if the current nodes value is `<value>`.
-* `-` or `keyValue` - dasel checks if the key/name/index of the current node is `<value>`.
-* Else dasel uses the key as a selector itself and compares the result against `<value>`.
+- `.` or `value` - dasel checks if the current nodes value is `<value>`.
+- `-` or `keyValue` - dasel checks if the key/name/index of the current node is `<value>`.
+- Else dasel uses the key as a selector itself and compares the result against `<value>`.
 
 ### Value
 
@@ -35,14 +35,15 @@ Note that dasel will stringy values prior to checking if they match.
 Dasel supports the following comparison operators:
 
 | Operator | Supported since |
-| :--- | :--- |
-| `=` | `v1.6.0` |
-| `!=` | `v1.17.0` |
+| :------- | :-------------- |
+| `=`      | `v1.6.0`        |
+| `!=`     | `v1.17.0`       |
 
 ## Example
 
 {% code title="input.json" %}
-```javascript
+
+```json
 {
   "users": [
     {
@@ -68,13 +69,13 @@ Dasel supports the following comparison operators:
   ]
 }
 ```
+
 {% endcode %}
 
 ### Search by key name
 
-```bash
-dasel select -f input.json -m '.(?:-=name).first'
-
+```shell
+$ dasel select -f input.json -m '.(?:-=name).first'
 "Tom"
 "Joe"
 "Jim"
@@ -82,10 +83,8 @@ dasel select -f input.json -m '.(?:-=name).first'
 
 ### Search by selector
 
-```bash
-dasel select -f input.json -m '.(?:.name.last=Wright).name.first'
-
+```shell
+$ dasel select -f input.json -m '.(?:.name.last=Wright).name.first'
 "Tom"
 "Jim"
 ```
-

@@ -10,7 +10,7 @@ Dynamic selectors allow you to select items from lists or maps when you don't kn
 You can use a selector as the key to create more complex conditions.
 {% endhint %}
 
-```bash
+```shell
 .(<key>=<value>)
 ```
 
@@ -20,9 +20,9 @@ The key defines which property/selector we should use to extract a value.
 
 If `<key>` is:
 
-* `.` or `value` - dasel checks if the current nodes value is `<value>`.
-* `-` or `keyValue` - dasel checks if the key/name/index of the current node is `<value>`.
-* Else dasel uses the key as a selector itself and compares the result against `<value>`.
+- `.` or `value` - dasel checks if the current nodes value is `<value>`.
+- `-` or `keyValue` - dasel checks if the key/name/index of the current node is `<value>`.
+- Else dasel uses the key as a selector itself and compares the result against `<value>`.
 
 ### Value
 
@@ -35,19 +35,19 @@ Note that dasel will stringy values prior to checking if they match.
 Dasel supports the following comparison operators:
 
 | Operator | Supported since |
-| :--- | :--- |
-| `=` | `v0.0.4` |
-| `>=` | `v1.14.0` |
-| `>` | `v1.14.0` |
-| `<` | `v1.14.0` |
-| `<=` | `v1.14.0` |
-| `!=` | `v1.17.0` |
+| :------- | :-------------- |
+| `=`      | `v0.0.4`        |
+| `>=`     | `v1.14.0`       |
+| `>`      | `v1.14.0`       |
+| `<`      | `v1.14.0`       |
+| `<=`     | `v1.14.0`       |
+| `!=`     | `v1.17.0`       |
 
 ### Multiple conditions
 
 You can use multiple dynamic selectors within the same part to perform `AND` logic.
 
-```bash
+```shell
 .(<key>=<value>)(<key2>=<value2>)
 ```
 
@@ -61,7 +61,7 @@ When performing dynamic checks dasel internally creates a new root node at the c
 
 This means that you can use fully formed selectors as a key to create more advanced logic.
 
-```bash
+```shell
 .users.(.addresses.(.primary=true).number=123).name.first
 ```
 
@@ -80,19 +80,22 @@ The resolution of that query looks something like this:
 ## Example
 
 {% code title="simple\_input.yaml" %}
+
 ```yaml
 colourCodes:
-- name: red
-  rgb: ff0000
-- name: green
-  rgb: 00ff00
-- name: blue
-  rgb: 0000ff
+  - name: red
+    rgb: ff0000
+  - name: green
+    rgb: 00ff00
+  - name: blue
+    rgb: 0000ff
 ```
+
 {% endcode %}
 
 {% code title="advanced\_input.json" %}
-```javascript
+
+```json
 {
   "users": [
     {
@@ -110,33 +113,30 @@ colourCodes:
           "number": 456
         }
       ]
-   }
+    }
   ]
 }
 ```
+
 {% endcode %}
 
 ### Single condition
 
-```bash
-dasel select -f simple_input.yaml '.colourCodes.(name=red).rgb'
-
+```shell
+$ dasel select -f simple_input.yaml '.colourCodes.(name=red).rgb'
 ff0000
 ```
 
 ### Multiple conditions
 
-```bash
-dasel select -f simple_input.yaml '.colourCodes.(name=red)(rgb=ff0000).rgb'
-
+```shell
+$ dasel select -f simple_input.yaml '.colourCodes.(name=red)(rgb=ff0000).rgb'
 ff0000
 ```
 
 ### Selector as a key
 
-```bash
-dasel -f advanced_input.json '.users.(.addresses.(.primary=true).number=123).name.first'
-
+```shell
+$ dasel -f advanced_input.json '.users.(.addresses.(.primary=true).number=123).name.first'
 "Tom"
 ```
-

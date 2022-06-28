@@ -7,6 +7,3 @@ $ curl https://api.github.com/repos/tomwright/dasel/releases/latest | dasel -p j
 
 https://github.com/TomWright/dasel/releases/download/v1.13.6/dasel_darwin_amd64
 ```
-
-#### 
-

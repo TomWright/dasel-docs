@@ -12,7 +12,7 @@ Available since `v1.25.0.`
 
 ## Usage
 
-```bash
+```shell
 dasel validate a.json b.yaml files/*.json
 ```
 
@@ -25,7 +25,7 @@ dasel validate a.json b.yaml files/*.json
 
 ### Validate an entire directory
 
-```
+```shell
 $ dasel validate tests/assets/*
 fail tests/assets/broken.json could not load input: could not unmarshal data: invalid character '}' after array element
 fail tests/assets/broken.xml could not load input: could not unmarshal data: xml.Decoder.Token() - XML syntax error on line 1: element <a> closed by </b>
@@ -38,7 +38,7 @@ Error: 2 files failed validation
 
 ### Validate a subset of files
 
-```
+```shell
 $ dasel validate tests/assets/example.*
 pass tests/assets/example.json
 pass tests/assets/example.xml
@@ -47,8 +47,9 @@ pass tests/assets/example.yaml
 
 ### Validate specific files
 
-```
+```shell
 $ dasel validate tests/assets/example.json tests/assets/example.yaml
 pass tests/assets/example.json
 pass tests/assets/example.yaml
 ```
+

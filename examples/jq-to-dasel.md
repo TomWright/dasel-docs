@@ -6,17 +6,21 @@ The follow examples show a set of [jq](https://github.com/stedolan/jq) commands 
 
 {% tabs %}
 {% tab title="JQ" %}
-```bash
+
+```shell
 echo '{"name": "Tom"}' | jq '.name'
 "Tom"
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '{"name": "Tom"}' | dasel -p json '.name'
 "Tom"
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -24,17 +28,21 @@ echo '{"name": "Tom"}' | dasel -p json '.name'
 
 {% tabs %}
 {% tab title="JQ" %}
-```bash
+
+```shell
 echo '{"user": {"name": "Tom", "age": 27}}' | jq '.user.age'
 27
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '{"user": {"name": "Tom", "age": 27}}' | dasel -p json '.user.age'
 27
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -42,17 +50,21 @@ echo '{"user": {"name": "Tom", "age": 27}}' | dasel -p json '.user.age'
 
 {% tabs %}
 {% tab title="JQ" %}
-```bash
+
+```shell
 echo '[1, 2, 3]' | jq '.[1]'
 2
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '[1, 2, 3]' | dasel -p json '.[1]'
 2
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -60,7 +72,8 @@ echo '[1, 2, 3]' | dasel -p json '.[1]'
 
 {% tabs %}
 {% tab title="JQ" %}
-```bash
+
+```shell
 echo '["a", "b", "c"]' | jq '. += ["d"]'
 [
   "a",
@@ -69,10 +82,12 @@ echo '["a", "b", "c"]' | jq '. += ["d"]'
   "d"
 ]
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '["a", "b", "c"]' | dasel put string -p json -s '.[]' d
 [
   "a",
@@ -81,6 +96,7 @@ echo '["a", "b", "c"]' | dasel put string -p json -s '.[]' d
   "d"
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -88,7 +104,8 @@ echo '["a", "b", "c"]' | dasel put string -p json -s '.[]' d
 
 {% tabs %}
 {% tab title="JQ" %}
-```bash
+
+```shell
 echo '["a", "b", "c"]' | jq '.[1] = "d"'
 [
   "a",
@@ -96,10 +113,12 @@ echo '["a", "b", "c"]' | jq '.[1] = "d"'
   "c"
 ]
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '["a", "b", "c"]' | dasel put string -p json '.[1]' d
 [
   "a",
@@ -107,6 +126,7 @@ echo '["a", "b", "c"]' | dasel put string -p json '.[1]' d
   "c"
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -114,7 +134,8 @@ echo '["a", "b", "c"]' | dasel put string -p json '.[1]' d
 
 {% tabs %}
 {% tab title="JQ" %}
-```bash
+
+```shell
 echo '[1, 2, 3]' | jq '.[1] = 5'
 [
   1,
@@ -122,10 +143,12 @@ echo '[1, 2, 3]' | jq '.[1] = 5'
   3
 ]
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '[1, 2, 3]' | dasel put int -p json '.[1]' 5
 [
   1,
@@ -133,6 +156,7 @@ echo '[1, 2, 3]' | dasel put int -p json '.[1]' 5
   3
 ]
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -140,7 +164,8 @@ echo '[1, 2, 3]' | dasel put int -p json '.[1]' 5
 
 {% tabs %}
 {% tab title="JQ" %}
-```bash
+
+```shell
 echo '{"user": {"name": "Tom", "age": 27}}' | jq '.user = {"name": "Frank", "age": 25}'
 {
   "user": {
@@ -149,10 +174,12 @@ echo '{"user": {"name": "Tom", "age": 27}}' | jq '.user = {"name": "Frank", "age
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put object" %}
-```bash
+
+```shell
 echo '{"user": {"name": "Tom", "age": 27}}' | dasel put object -p json -t string -t int '.user' name=Frank age=25
 {
   "user": {
@@ -161,10 +188,12 @@ echo '{"user": {"name": "Tom", "age": 27}}' | dasel put object -p json -t string
   }
 }
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put document" %}
-```bash
+
+```shell
 echo '{"user": {"name": "Tom", "age": 27}}' | dasel put document -p json '.user' '{"name": "Frank", "age": 25}'
 {
   "user": {
@@ -173,6 +202,7 @@ echo '{"user": {"name": "Tom", "age": 27}}' | dasel put document -p json '.user'
   }
 }
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -180,7 +210,8 @@ echo '{"user": {"name": "Tom", "age": 27}}' | dasel put document -p json '.user'
 
 {% tabs %}
 {% tab title="Bash" %}
-```bash
+
+```shell
 echo '{"users": [{"name": "Tom"}]}' | jq '.users += [{"name": "Frank"}]'
 {
   "users": [
@@ -193,10 +224,12 @@ echo '{"users": [{"name": "Tom"}]}' | jq '.users += [{"name": "Frank"}]'
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put object" %}
-```bash
+
+```shell
 echo '{"users": [{"name": "Tom"}]}' | dasel put object -p json -t string '.users.[]' name=Frank
 {
   "users": [
@@ -209,10 +242,12 @@ echo '{"users": [{"name": "Tom"}]}' | dasel put object -p json -t string '.users
   ]
 }
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put document" %}
-```bash
+
+```shell
 echo '{"users": [{"name": "Tom"}]}' | dasel put document -p json '.users.[]' '{"name":"Frank"}'
 {
   "users": [
@@ -225,6 +260,6 @@ echo '{"users": [{"name": "Tom"}]}' | dasel put document -p json '.users.[]' '{"
   ]
 }
 ```
+
 {% endtab %}
 {% endtabs %}
-

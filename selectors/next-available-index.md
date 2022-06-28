@@ -12,17 +12,14 @@ You can think of this as appending to a list.
 This is only available in [put](../usage/put.md) commands.
 {% endhint %}
 
-```bash
+```shell
 .[]
 ```
 
 ## Example
 
-```bash
-echo '{"x": [1, 2]}' | dasel put int -p json '.x.[]' 3
-```
-
-```javascript
+```shell
+$ echo '{"x": [1, 2]}' | dasel put int -p json '.x.[]' 3
 {
   "x": [
     1,
@@ -31,4 +28,3 @@ echo '{"x": [1, 2]}' | dasel put int -p json '.x.[]' 3
   ]
 }
 ```
-

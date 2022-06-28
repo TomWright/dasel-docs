@@ -6,17 +6,21 @@ The follow examples show a set of [yq](https://github.com/kislyuk/yq) commands a
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo 'name: Tom' | yq '.name'
 "Tom"
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo 'name: Tom' | dasel -p yaml '.name'
 Tom
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -24,21 +28,25 @@ Tom
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo 'user:
   name: Tom
   age: 27' | yq '.user.age'
 27
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo 'user:
        name: Tom
        age: 27' | dasel -p yaml '.user.age'
 27
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -46,21 +54,25 @@ echo 'user:
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo '- 1
 - 2
 - 3' | yq '.[1]'
 2
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '- 1
 - 2
 - 3' | dasel -p yaml '.[1]'
 2
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -68,7 +80,8 @@ echo '- 1
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo '- a
 - b
 - c' | yq --yaml-output '. += ["d"]'
@@ -77,10 +90,12 @@ echo '- a
 - c
 - d
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '- a
 - b
 - c' | dasel put string -p yaml -s '.[]' d
@@ -89,6 +104,7 @@ echo '- a
 - c
 - d
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -96,7 +112,8 @@ echo '- a
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo '- a
 - b
 - c' | yq --yaml-output '.[1] = "d"'
@@ -104,10 +121,12 @@ echo '- a
 - d
 - c
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
-```bash
+
+```shell
 echo '- a
 - b
 - c' | dasel put string -p yaml -s '.[1]' d
@@ -115,6 +134,7 @@ echo '- a
 - d
 - c
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -122,7 +142,8 @@ echo '- a
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo '- 1
 - 2
 - 3' | yq --yaml-output '.[1] = 5'
@@ -130,9 +151,11 @@ echo '- 1
 - 5
 - 3
 ```
+
 {% endtab %}
 
 {% tab title="Dasel" %}
+
 ```
 echo '- 1
 - 2
@@ -141,6 +164,7 @@ echo '- 1
 - 5
 - 3
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -148,7 +172,8 @@ echo '- 1
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo 'user:
   name: Tom
   age: 27' | yq --yaml-output '.user = {"name": "Frank", "age": 25}'
@@ -156,10 +181,12 @@ user:
   name: Frank
   age: 25
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put object" %}
-```bash
+
+```shell
 echo 'user:
   name: Tom
   age: 27' | dasel put object -p yaml -t string -t int '.user' name=Frank age=25
@@ -167,10 +194,12 @@ user:
   age: 25
   name: Frank
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put document" %}
-```bash
+
+```shell
 echo 'user:
   name: Tom
   age: 27' | dasel put document -p yaml -d json '.user' '{"name":"Frank","age":25}'
@@ -178,6 +207,7 @@ user:
   age: 25
   name: Frank
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -185,33 +215,38 @@ user:
 
 {% tabs %}
 {% tab title="YQ" %}
-```bash
+
+```shell
 echo 'users:
 - name: Tom' | yq --yaml-output '.users += [{"name": "Frank"}]'
 users:
   - name: Tom
   - name: Frank
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put object" %}
-```bash
+
+```shell
 echo 'users:
 - name: Tom' | dasel put object -p yaml -t string '.users.[]' name=Frank
 users:
 - name: Tom
 - name: Frank
 ```
+
 {% endtab %}
 
 {% tab title="Dasel put document" %}
-```bash
+
+```shell
 echo 'users:
 - name: Tom' | dasel put document -p yaml -d json '.users.[]' '{"name":"Frank"}'
 users:
 - name: Tom
 - name: Frank
 ```
+
 {% endtab %}
 {% endtabs %}
-

@@ -4,7 +4,7 @@ Dasel attempts to find the correct parser for the given file type, but if that f
 
 ## JSON
 
-```bash
+```shell
 -p json
 ```
 
@@ -18,7 +18,7 @@ Once decoded, you can access them using any of the standard selectors provided b
 
 ## TOML
 
-```bash
+```shell
 -p toml
 ```
 
@@ -26,7 +26,7 @@ Using [github.com/pelletier/go-toml](https://github.com/pelletier/go-toml).
 
 ## YAML
 
-```bash
+```shell
 -p yaml
 ```
 
@@ -40,7 +40,7 @@ Once decoded, you can access them using any of the standard selectors provided b
 
 ## XML
 
-```bash
+```shell
 -p xml
 ```
 
@@ -90,7 +90,7 @@ There are no plans to introduce a workaround for this but if there is enough dem
 
 ## CSV
 
-```bash
+```shell
 -p csv
 ```
 
@@ -104,9 +104,8 @@ Column deletion is not supported.
 
 ## Plain
 
-```bash
+```shell
 -p plain
 ```
 
 This outputs the data using `fmt.Sprint(x)`, displaying whatever underlying value is present as a string.
-
