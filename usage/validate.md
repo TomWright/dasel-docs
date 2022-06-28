@@ -53,3 +53,18 @@ pass tests/assets/example.json
 pass tests/assets/example.yaml
 ```
 
+## Pre-Commit
+
+Add `dasel` hooks to `.pre-commit-config.yaml` file
+
+```yaml
+- repo: https://github.com/TomWright/dasel
+  rev: v1.25.1
+  hooks:
+    - id: dasel-validate
+```
+
+for a native execution of dasel, or use:
+
+- `dasel-validate-docker` pre-commit hook for executing dasel using the official [Docker images](installation/README.md#docker)
+- `dasel-validate-bin` pre-commit hook for executing dasel using the official [binary](installation/README.md)
