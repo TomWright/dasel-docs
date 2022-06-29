@@ -66,5 +66,5 @@ Add `dasel` hooks to `.pre-commit-config.yaml` file
 
 for a native execution of dasel, or use:
 
-- `dasel-validate-docker` pre-commit hook for executing dasel using the official [Docker images](installation/README.md#docker)
-- `dasel-validate-bin` pre-commit hook for executing dasel using the official [binary](installation/README.md)
+* `dasel-validate-docker` pre-commit hook for executing dasel using the official [Docker images](https://daseldocs.tomwright.me/installation#docker)
+* `dasel-validate-bin` pre-commit hook for executing dasel using the official [binary](installation/)
