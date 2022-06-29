@@ -8,7 +8,7 @@ Dasel will create any data items that do not already exist allowing you to creat
 
 ## Usage
 
-```bash
+```shell
 dasel put <type> -f <file> <selector> <value>
 ```
 
@@ -152,7 +152,7 @@ If `--file` is used without `--out` then the source file will be updated.
 
 ### Put string
 
-```bash
+```shell
 $ echo "name: Tom" | ./dasel put string -p yaml ".name" Jim
 name: Jim
 ```
@@ -161,21 +161,17 @@ name: Jim
 
 You can pipe multiple dasel commands together in order to build entire documents or make multiple changes:
 
-```bash
-echo '' |
+```shell
+$ echo '' |
 dasel put string -p yaml '.servers.[].bind_dn' 'x' |
 dasel put string -p yaml -m '.servers.[*].attributes.name' 'y' |
 dasel put string -p yaml -m '.servers.[*].group_mappings.[].group_dn' 'a' |
 dasel put string -p yaml -m '.servers.[*].group_mappings.[].group_dn' 'b'
-```
-
-```yaml
 servers:
-- attributes:
-    name: "y"
-  bind_dn: x
-  group_mappings:
-  - group_dn: a
-  - group_dn: b
+  - attributes:
+      name: "y"
+    bind_dn: x
+    group_mappings:
+      - group_dn: a
+      - group_dn: b
 ```
-

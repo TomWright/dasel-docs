@@ -10,7 +10,7 @@ The all indexes selector allows you to target all items of a list or map.
 This must be used in conjunction with the `-m`, `--multiple` flag.
 {% endhint %}
 
-```bash
+```shell
 .[*]
 ```
 
@@ -18,10 +18,8 @@ This must be used in conjunction with the `-m`, `--multiple` flag.
 
 ### Array
 
-```bash
-echo '{"x": [1, 2, 3]}' |
-dasel select -m -p json '.x.[*]'
-
+```shell
+$ echo '{"x": [1, 2, 3]}' | dasel select -m -p json '.x.[*]'
 1
 2
 3
@@ -29,12 +27,9 @@ dasel select -m -p json '.x.[*]'
 
 ### Object/Map
 
-```bash
-echo '{"x": {"x": 1, "y": 2, "z": 3}}' |
-dasel select -m -p json '.x.[*]'
-
+```shell
+$ echo '{"x": {"x": 1, "y": 2, "z": 3}}' | dasel select -m -p json '.x.[*]'
 1
 2
 3
 ```
-

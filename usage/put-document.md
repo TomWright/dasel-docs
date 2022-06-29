@@ -10,7 +10,7 @@ Note that `put document` will completely overwrite any existing data at the give
 
 ## Usage
 
-```bash
+```shell
 dasel put document -f <file> -d <document-parser> <selector> <document>
 ```
 
@@ -125,26 +125,21 @@ dasel put document -f <file> -d <document-parser> <selector> <document>
 
 ### Put YAML document into JSON
 
-```bash
-echo '{"people":[]}' | dasel put document -p json -d yaml '.people.[]' 'name: Tom
+```shell
+$ echo '{"people":[]}' | dasel put document -p json -d yaml '.people.[]' 'name: Tom
 colours:
 - red
 - green
 - blue'
 ```
 
-```javascript
+```json
 {
   "people": [
     {
-      "colours": [
-        "red",
-        "green",
-        "blue"
-      ],
+      "colours": ["red", "green", "blue"],
       "name": "Tom"
     }
   ]
 }
 ```
-

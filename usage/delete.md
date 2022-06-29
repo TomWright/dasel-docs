@@ -14,7 +14,7 @@ Available since `v1.16.0.`
 
 ## Usage
 
-```bash
+```shell
 dasel delete -f <file> <selector>
 ```
 
@@ -125,7 +125,7 @@ If `--file` is used without `--out` then the source file will be updated.
 
 ### Delete property
 
-```bash
+```shell
 $ echo '{
   "name": "Tom",
   "email": "contact@tomwright.me"
@@ -134,4 +134,3 @@ $ echo '{
   "name": "Tom"
 }
 ```
-

@@ -8,7 +8,7 @@ See [XML file format](../usage/supported-file-types.md#xml) for more information
 
 Decoded attributes are set as properties on the related object with a prefix of `-`.
 
-```bash
+```shell
 echo '<data>
     <users primary="true">
         <name>Tom</name>
@@ -24,7 +24,7 @@ true
 
 We can also filter on attributes since they are defined against the related object.
 
-```bash
+```shell
 echo '<data>
     <users primary="true">
         <name>Tom</name>

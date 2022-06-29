@@ -8,7 +8,7 @@ It will not modify the source data in any way.
 
 ## Usage
 
-```bash
+```shell
 dasel select -f <file> <selector>
 ```
 
@@ -154,14 +154,13 @@ dasel select -f <file> <selector>
 ### **Select the image within a kubernetes deployment manifest file:**
 
 ```text
-dasel select -f deployment.yaml "spec.template.spec.containers.(name=auth).image"
+$ dasel select -f deployment.yaml "spec.template.spec.containers.(name=auth).image"
 "tomwright/auth:v1.0.0"
 ```
 
 ### **Piping data into the select:**
 
 ```text
-cat deployment.yaml | dasel select -p yaml "spec.template.spec.containers.(name=auth).image"
+$ cat deployment.yaml | dasel select -p yaml "spec.template.spec.containers.(name=auth).image"
 "tomwright/auth:v1.0.0"
 ```
-

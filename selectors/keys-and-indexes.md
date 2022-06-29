@@ -10,16 +10,15 @@ The key/index selector is used to return a list of all keys/indexes in the curre
 This must be used in conjunction with the `-m`, `--multiple` flag.
 {% endhint %}
 
-```bash
+```shell
 .-
 ```
 
 ## Example
 
-```bash
-echo '{"a":{"c": [1, 2, 3]},"b":{}}' | dasel -p json -m '.a.c.-'
+```shell
+$ echo '{"a":{"c": [1, 2, 3]},"b":{}}' | dasel -p json -m '.a.c.-'
 "0"
 "1"
 "2"
 ```
-

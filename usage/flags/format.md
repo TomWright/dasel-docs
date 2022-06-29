@@ -18,18 +18,16 @@ The root context `.` is equal to the node found at the given selector.
 
 It is recommended that you use the `select` function with a selector to access values, but you can access properties in the path with `.field.subField` if preferred.
 
-
-
-| Function | Description |
-| :--- | :--- |
-| `select "selector"` | Returns the node at the given selector. |
-| `selectMultiple "selector"` | Returns a list of nodes found for the given selector. |
-| `query` | Alias of `select`. |
-| `queryMultiple` | Alias of `selectMultiple`. |
-| `isFirst` | Returns `true` if the node being formatted is the first in a list of selected nodes. |
-| `isLast` | Returns `true` if the node being formatted is the last in a list of selected nodes. |
-| `format "template"` | Allows recursive calls to the formatting capability. Useful when using a `selectMultiple`. |
-| `newline` | Returns a newline character. |
+| Function                    | Description                                                                                |
+| :-------------------------- | :----------------------------------------------------------------------------------------- |
+| `select "selector"`         | Returns the node at the given selector.                                                    |
+| `selectMultiple "selector"` | Returns a list of nodes found for the given selector.                                      |
+| `query`                     | Alias of `select`.                                                                         |
+| `queryMultiple`             | Alias of `selectMultiple`.                                                                 |
+| `isFirst`                   | Returns `true` if the node being formatted is the first in a list of selected nodes.       |
+| `isLast`                    | Returns `true` if the node being formatted is the last in a list of selected nodes.        |
+| `format "template"`         | Allows recursive calls to the formatting capability. Useful when using a `selectMultiple`. |
+| `newline`                   | Returns a newline character.                                                               |
 
 The templates are parsed using golang's `text/template` package so dasel also supports an array of conditional and loop statements by default.
 
@@ -76,8 +74,8 @@ For more information refer to the [related documentation](https://pkg.go.dev/tex
 
 ### Select
 
-```bash
-echo '[
+```shell
+$ echo '[
   {"name": "Tom", "email": "contact@tomwright.me"},
   {"name": "Jim", "email": "jim@gmail.com"}
 ]' | dasel -p json -m \
@@ -89,8 +87,8 @@ Jim,jim@gmail.com
 
 ### SelectMultiple
 
-```bash
-echo '[
+```shell
+$ echo '[
   {"name": "Tom", "emails": [
     {"email": "contact@tomwright.me", "primary": true},
     {"email": "tom@gmail.com", "primary": false}
@@ -109,4 +107,3 @@ Jim:
 - old@gmail.com, false
 - jim@gmail.com, true
 ```
-
