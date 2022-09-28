@@ -19,7 +19,7 @@ The root context `.` is equal to the node found at the given selector.
 It is recommended that you use the `select` function with a selector to access values, but you can access properties in the path with `.field.subField` if preferred.
 
 | Function                    | Description                                                                                |
-| :-------------------------- | :----------------------------------------------------------------------------------------- |
+| --------------------------- | ------------------------------------------------------------------------------------------ |
 | `select "selector"`         | Returns the node at the given selector.                                                    |
 | `selectMultiple "selector"` | Returns a list of nodes found for the given selector.                                      |
 | `query`                     | Alias of `select`.                                                                         |
@@ -29,44 +29,18 @@ It is recommended that you use the `select` function with a selector to access v
 | `format "template"`         | Allows recursive calls to the formatting capability. Useful when using a `selectMultiple`. |
 | `newline`                   | Returns a newline character.                                                               |
 
+{% hint style="info" %}
+Dasel also provides access to [sprig](http://masterminds.github.io/sprig/) functions within templates to allow more functionality.
+{% endhint %}
+
 The templates are parsed using golang's `text/template` package so dasel also supports an array of conditional and loop statements by default.
 
-<table>
-  <thead>
-    <tr>
-      <th style="text-align:left">Description</th>
-      <th style="text-align:left">Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align:left">If condition</td>
-      <td style="text-align:left"><code>{{ if x }} x is true {{ else }} x is false {{ end }}</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">If not condition</td>
-      <td style="text-align:left"><code>{{ if not x }} x is </code>false<code> {{ else }} x is true {{ end }}</code>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Range</td>
-      <td style="text-align:left">
-        <p><code>Numbers:</code>
-        </p>
-        <p><code>{{ range .numbers -}}<br />- {{ . }}</code>
-        </p>
-        <p><code>{{ end }}</code>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td style="text-align:left">Text and space manipulation</td>
-      <td style="text-align:left"><a href="https://pkg.go.dev/text/template#hdr-Text_and_spaces">https://pkg.go.dev/text/template#hdr-Text_and_spaces</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Description                 | Example                                                                                                                      |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| If condition                | `{{ if x }} x is true {{ else }} x is false {{ end }}`                                                                       |
+| If not condition            | `{{ if not x }} x is` false `{{ else }} x is true {{ end }}`                                                                 |
+| Range                       | <p><code>Numbers:</code></p><p><code>{{ range .numbers -}}</code><br><code>- {{ . }}</code></p><p><code>{{ end }}</code></p> |
+| Text and space manipulation | [https://pkg.go.dev/text/template#hdr-Text\_and\_spaces](https://pkg.go.dev/text/template#hdr-Text\_and\_spaces)             |
 
 For more information refer to the [related documentation](https://pkg.go.dev/text/template#hdr-Functions).
 
