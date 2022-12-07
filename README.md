@@ -1,6 +1,10 @@
 # Introduction
 
-Dasel \(short for data-selector\) allows you to query and modify data structures using selector strings.
+{% hint style="warning" %}
+You are viewing dasel v2 documentation.
+{% endhint %}
+
+Dasel (short for data-selector) allows you to query and modify data structures using selector strings.
 
 ## One tool to rule them all
 
