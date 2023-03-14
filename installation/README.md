@@ -17,7 +17,7 @@ Run dasel in docker using the image `ghcr.io/tomwright/dasel`.
 Run the docker image, passing in a dasel command with the executable excluded.
 
 ```shell
-$ echo '{"name": "Tom"}' | docker run -i --rm ghcr.io/tomwright/dasel:latest -p json '.name'
+$ echo '{"name": "Tom"}' | docker run -i --rm ghcr.io/tomwright/dasel:latest -r json '.name'
 "Tom"
 ```
 
