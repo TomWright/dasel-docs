@@ -15,8 +15,6 @@ It's worth mentioning that this step isn't required because the commands listed 
 
 ## Running commands
 
-
-
 ### [Select](https://github.com/TomWright/dasel/blob/09ffcb6c1f500c1a9cd231684d7830d4c6a3a2a2/context.go#L115)
 
 ```go
@@ -60,7 +58,7 @@ func main() {
 }
 ```
 
-Note that is you pass a pointer, the original value also gets updated.
+Note that if you pass a pointer, the original value also gets updated.
 
 ```go
 func main() {
