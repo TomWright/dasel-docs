@@ -44,6 +44,7 @@
 
 ## Examples
 
+* [Using dasel as a go package](examples/using-dasel-as-a-go-package.md)
 * [Basics](examples/basics.md)
 * [Change file format](examples/change-file-format.md)
 * [Filtering objects based on present/missing key](examples/filtering-objects-based-on-present-missing-key.md)
