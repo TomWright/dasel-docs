@@ -12,5 +12,5 @@ $ echo '{"numbers":[1,2,3,4,5,6,7,8,9]}' | dasel -r json 'numbers.count()'
 1
 
 $ echo '{"numbers":[1,2,3,4,5,6,7,8,9]}' | dasel -r json 'numbers.all().count()'
-1
+9
 ```
