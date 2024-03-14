@@ -11,6 +11,7 @@ Possible return values are:
 * `bool`
 * `array`
 * `object`
+* `null`
 * `unknown`
 
 ## Examples
