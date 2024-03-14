@@ -39,7 +39,7 @@
 * [Parent](functions/parent.md)
 * [Property](functions/property.md)
 * [String](functions/string.md)
-* [Null](functions/string-1.md)
+* [Null](functions/null.md)
 * [This](functions/this.md)
 * [Type](functions/type.md)
 
