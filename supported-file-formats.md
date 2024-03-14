@@ -5,7 +5,7 @@ Dasel supports the following file formats:
 * `json`
 * `yaml`
 * `csv`
-* `toml`
+* `toml` [v1.0.0](https://toml.io/en/v1.0.0)
 * `xml`
 * `-` (plain, write-only)
 
