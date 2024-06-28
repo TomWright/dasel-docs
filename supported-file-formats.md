@@ -4,6 +4,7 @@ Dasel supports the following file formats:
 
 * `json`
 * `yaml`
+  * Merge tags/aliases are supported in reads from `v2.8.0`.
 * `csv`
 * `toml` [v1.0.0](https://toml.io/en/v1.0.0)
 * `xml`
