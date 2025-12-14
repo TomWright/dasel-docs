@@ -44,6 +44,23 @@ asdf install dasel <version>
 asdf global dasel <version>
 ```
 
+## Mise
+
+Using [mise](https://github.com/jdx/mise).
+
+List dasel versions available:
+
+```shell
+mise ls-remote dasel
+```
+
+Install a specific version (you can use the latest alias) and make it available globally:
+
+```shell
+mise install dasel@<version>
+mise use -g dasel@<version>
+```
+
 ## Nix
 
 To install using the [Nix Package Manager](https://nixos.org) (for non-NixOS)
