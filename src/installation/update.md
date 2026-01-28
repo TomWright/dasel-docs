@@ -1,8 +1,7 @@
 # Update
 
-{% hint style="warning" %}
-This is a dasel feature and will cause the current executable to be replaced. This may cause side effects when used in conjunction with a package manager, and as such may not be included in some versions of dasel installed using package managers.
-{% endhint %}
+> [!WARNING]
+> This is a dasel feature and will cause the current executable to be replaced. This may cause side effects when used in conjunction with a package manager, and as such may not be included in some versions of dasel installed using package managers.
 
 Dasel can self-update using the latest release on Github.
 

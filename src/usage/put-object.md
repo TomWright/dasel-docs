@@ -1,26 +1,21 @@
-# Delete
+# Put object
 
 ## Description
 
-This command allows you to delete data at a given selector.
+This command allows you to modify data at a given selector.
 
-If the root node is deleted, an empty node of the same type will be output.
+It generally works in the same way as [put](put.md), but allows you to write entire maps with a single command.
 
-Note that if your root node is anything other than an object or array, dasel will output an empty object.
-
-{% hint style="info" %}
-Available since `v1.16.0.`
-{% endhint %}
+Note that `put object` will completely overwrite any existing data at the given selector.
 
 ## Usage
 
 ```shell
-dasel delete -f <file> <selector>
+dasel put object -f <file> -t <type> -t <type> <selector> <value:key=value> <value:key=value>
 ```
 
-{% hint style="warning" %}
-If `--file` is used without `--out` then the source file will be updated.
-{% endhint %}
+> [!NOTE]
+> Omit the types and values to create an empty object/map.
 
 <table>
   <thead>
@@ -30,6 +25,31 @@ If `--file` is used without `--out` then the source file will be updated.
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align:left"><code>-t</code>, <code>&lt;type&gt;</code>
+      </td>
+      <td style="text-align:left">
+        <p>The type of value you want to put.</p>
+        <p>You must repeat this argument for each value provided.</p>
+        <p>Available arguments:</p>
+        <ul>
+          <li>string</li>
+          <li>int</li>
+          <li>bool</li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align:left"><code>&lt;value&gt;</code>
+      </td>
+      <td style="text-align:left">
+        <p>The key + value to write as<code>key=value</code>
+        </p>
+        <p>Dasel will parse this value as a string, int, or bool depending on the
+          given <code>type</code>.</p>
+        <p>This is required.</p>
+      </td>
+    </tr>
     <tr>
       <td style="text-align:left"><code>-f</code>, <code>--file</code>
       </td>
@@ -78,7 +98,7 @@ If `--file` is used without `--out` then the source file will be updated.
       <td style="text-align:left"><code>-m</code>, <code>--multiple</code>
       </td>
       <td style="text-align:left">
-        <p>Tells dasel to delete multiple items.</p>
+        <p>Tells dasel to put multiple items.</p>
         <p>See <a href="flags/multiple.md">multiple</a>.</p>
       </td>
     </tr>
@@ -123,14 +143,12 @@ If `--file` is used without `--out` then the source file will be updated.
 
 ## Example
 
-### Delete property
+### Put object
 
 ```shell
-$ echo '{
-  "name": "Tom",
-  "email": "contact@tomwright.me"
-}' | dasel delete -p json '.email'
-{
-  "name": "Tom"
-}
+$ echo "" | dasel put object -p yaml -t string -t int "my.favourites" colour=red number=3
+my:
+  favourites:
+    colour: red
+    number: 3
 ```

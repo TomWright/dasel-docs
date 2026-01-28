@@ -12,9 +12,8 @@ Dasel will create any data items that do not already exist allowing you to creat
 dasel put <type> -f <file> <selector> <value>
 ```
 
-{% hint style="warning" %}
-If `--file` is used without `--out` then the source file will be updated.
-{% endhint %}
+> [!WARNING]
+> If `--file` is used without `--out` then the source file will be updated.
 
 | Flag                                                                         | Description                                                                                                                                                                                                                                                                             |
 | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

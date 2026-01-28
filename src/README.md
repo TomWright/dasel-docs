@@ -1,8 +1,7 @@
 # Introduction
 
-{% hint style="warning" %}
-You are viewing dasel v1 documentation.
-{% endhint %}
+> [!WARNING]
+> You are viewing dasel v1 documentation.
 
 Dasel (short for data-selector) allows you to query and modify data structures using selector strings.
 

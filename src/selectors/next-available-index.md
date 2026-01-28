@@ -8,9 +8,8 @@ You can think of this as appending to a list.
 
 ## Usage
 
-{% hint style="info" %}
-This is only available in [put](../usage/put.md) commands.
-{% endhint %}
+> [!NOTE]
+> This is only available in [put](../usage/put.md) commands.
 
 ```shell
 .[]

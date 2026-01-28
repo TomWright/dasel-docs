@@ -4,30 +4,31 @@ The follow examples show a set of [yq](https://github.com/kislyuk/yq) commands a
 
 ### **Select a single value**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo 'name: Tom' | yq '.name'
 "Tom"
 ```
 
-{% endtab %}
 
-{% tab title="Dasel" %}
+
+### Dasel
+
 
 ```shell
 echo 'name: Tom' | dasel -p yaml '.name'
 Tom
 ```
 
-{% endtab %}
-{% endtabs %}
 
 ### **Select a nested value**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo 'user:
@@ -36,9 +37,10 @@ echo 'user:
 27
 ```
 
-{% endtab %}
 
-{% tab title="Dasel" %}
+
+### Dasel
+
 
 ```shell
 echo 'user:
@@ -47,13 +49,12 @@ echo 'user:
 27
 ```
 
-{% endtab %}
-{% endtabs %}
 
 ### **Select an array index**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo '- 1
@@ -62,9 +63,10 @@ echo '- 1
 2
 ```
 
-{% endtab %}
 
-{% tab title="Dasel" %}
+
+### Dasel
+
 
 ```shell
 echo '- 1
@@ -73,13 +75,12 @@ echo '- 1
 2
 ```
 
-{% endtab %}
-{% endtabs %}
 
 ### **Append to an array of strings**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo '- a
@@ -91,9 +92,10 @@ echo '- a
 - d
 ```
 
-{% endtab %}
 
-{% tab title="Dasel" %}
+
+### Dasel
+
 
 ```shell
 echo '- a
@@ -105,13 +107,12 @@ echo '- a
 - d
 ```
 
-{% endtab %}
-{% endtabs %}
 
 ### **Update a string value**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo '- a
@@ -122,9 +123,10 @@ echo '- a
 - c
 ```
 
-{% endtab %}
 
-{% tab title="Dasel" %}
+
+### Dasel
+
 
 ```shell
 echo '- a
@@ -135,13 +137,12 @@ echo '- a
 - c
 ```
 
-{% endtab %}
-{% endtabs %}
 
 ### **Update an int value**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo '- 1
@@ -152,9 +153,10 @@ echo '- 1
 - 3
 ```
 
-{% endtab %}
 
-{% tab title="Dasel" %}
+
+### Dasel
+
 
 ```
 echo '- 1
@@ -165,13 +167,12 @@ echo '- 1
 - 3
 ```
 
-{% endtab %}
-{% endtabs %}
 
 ### **Overwrite an object**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo 'user:
@@ -182,9 +183,10 @@ user:
   age: 25
 ```
 
-{% endtab %}
 
-{% tab title="Dasel put object" %}
+
+### Dasel put object
+
 
 ```shell
 echo 'user:
@@ -195,9 +197,10 @@ user:
   name: Frank
 ```
 
-{% endtab %}
 
-{% tab title="Dasel put document" %}
+
+### Dasel put document
+
 
 ```shell
 echo 'user:
@@ -208,13 +211,12 @@ user:
   name: Frank
 ```
 
-{% endtab %}
-{% endtabs %}
 
 ### **Append to an array of objects**
 
-{% tabs %}
-{% tab title="YQ" %}
+
+### YQ
+
 
 ```shell
 echo 'users:
@@ -224,9 +226,10 @@ users:
   - name: Frank
 ```
 
-{% endtab %}
 
-{% tab title="Dasel put object" %}
+
+### Dasel put object
+
 
 ```shell
 echo 'users:
@@ -236,9 +239,10 @@ users:
 - name: Frank
 ```
 
-{% endtab %}
 
-{% tab title="Dasel put document" %}
+
+### Dasel put document
+
 
 ```shell
 echo 'users:
@@ -248,5 +252,3 @@ users:
 - name: Frank
 ```
 
-{% endtab %}
-{% endtabs %}
