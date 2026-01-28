@@ -11,7 +11,7 @@ $ echo '{"name":{"first":"Tom","last":"Wright"}}' | dasel -r json 'name.first'
 "Tom"
 ```
 
-See the [function documentation](broken-reference) for information on the available selectors.
+See the [function documentation](../functions/selector-overview.md) for information on the available selectors.
 
 ## Flags/Args
 

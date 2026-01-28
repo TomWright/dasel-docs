@@ -1,10 +1,7 @@
 # Introduction
 
-{% hint style="warning" %}
-You are viewing dasel v2 documentation.
-{% endhint %}
-
-
+> [!WARNING]
+> You are viewing dasel v2 documentation.
 
 ## Introduction
 
@@ -62,4 +59,4 @@ Dasel selectors have been completely reworked.
 
 The purpose of this is to allow users to build their own complex logic and filtering without needing specific code being written to handle their use-case.
 
-Please see the [function overview](broken-reference) for function documentation and examples.
+Please see the [function overview](functions/selector-overview.md) for function documentation and examples.

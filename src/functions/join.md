@@ -16,11 +16,8 @@ If additional arguments are given, join uses those values as selectors and joins
 
 If you wish to join data with plain strings you may use the [`string`](string.md) function.
 
-{% hint style="info" %}
-Be aware that the separator must always be a plain string and cannot contain any selector functions.
-{% endhint %}
-
-
+> [!NOTE]
+> Be aware that the separator must always be a plain string and cannot contain any selector functions.
 
 ## Examples
 
