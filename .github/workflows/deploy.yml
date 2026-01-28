@@ -1,0 +1,58 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - "v1"
+      - "v2"
+      - "v3"
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout to '${{ github.ref_name }}' branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v2
+        with:
+          mdbook-version: '0.5.2'
+
+      - name: Build documentation
+        run: |
+          VERSION="${{ github.ref_name }}"
+          echo "Building $VERSION..."
+          mdbook build -d "book/$VERSION"
+
+      - name: Create index redirect
+        run: |
+          LATEST_VERSION="v3"
+          mkdir -p book
+          cat > book/index.html << INNEREOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="refresh" content="0; url=${LATEST_VERSION}/">
+            <title>Redirecting to ${LATEST_VERSION}...</title>
+          </head>
+          <body>
+            <p>Redirecting to <a href="${LATEST_VERSION}/">${LATEST_VERSION}</a>...</p>
+          </body>
+          </html>
+          INNEREOF
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./book
+          publish_branch: pages
+          keep_files: true
+          force_orphan: false
