@@ -15,7 +15,7 @@ $ echo '{"name":{"first":"Tom","last":"Wright"}}' |
 }
 ```
 
-See the [function documentation](broken-reference) for information on the available selectors.
+See the [function documentation](../functions/selector-overview.md) for information on the available selectors.
 
 ## Flags/Args
 

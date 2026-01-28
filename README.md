@@ -1,65 +1,32 @@
-# Introduction
+# Dasel Documentation
 
-{% hint style="warning" %}
-You are viewing dasel v2 documentation.
-{% endhint %}
+This repository contains the documentation for [Dasel](https://github.com/TomWright/dasel), built using [mdBook](https://rust-lang.github.io/mdBook/).
 
+## Prerequisites
 
+Install mdBook:
 
-## Introduction
+```bash
+cargo install mdbook
+```
 
-Dasel (short for data-selector) allows you to query and modify data structures using selector strings.
+Or using other methods from the [official installation guide](https://rust-lang.github.io/mdBook/guide/installation.html).
 
-### One tool to rule them all <a href="#one-tool-to-rule-them-all" id="one-tool-to-rule-them-all"></a>
+## Building the Documentation
 
-Say good bye to learning new tools just to work with a different data format.Dasel uses a standard selector syntax no matter the data format. This means that once you learn how to use dasel you immediately have the ability to query/modify any of the supported data types without any additional tools or effort.
+To build the documentation:
 
-## V1 to V2 breaking changes
+```bash
+mdbook build
+```
 
-This release does introduce a major version upgrade, and as such there are breaking changes.
+The generated HTML files will be in the `book/v2` directory.
 
-### Select command
+## Contributing
 
-The select command remains largely the same, but the selector format has changed a lot. See selector changes below.
+When adding or modifying documentation:
 
-* Removal of `-p`,`--parser`. Please use `-r`,`--read` and `-w`,`--write`.
-  * Note that if no `-w` is given, the value of `-r` is used.
-  * `dasel -p json ...` becomes `dasel -r json ...`
-* Removal of `--format` flag.
-  * I plan on implementing this as a custom write parser instead.
-* Removal of `-m`,`--multi` flag. All selectors now act in this manner.
-* Removal of `-c`, `--compact` flag. Use `--pretty=false` instead.
-
-### Put command
-
-* Removal of sub commands (e.g. `dasel put string`).
-  * Dasel now expects a `dasel put` command to have a `-t`,`--type` flag that specified the type.
-  * If the given type doesn't match a pre-defined type (`string`, `int`, etc) it is checked against the read parsers (e.g. `json`, `yaml`). This is how you can achieve the previous `put document` functionality.
-* Complete removal of `dasel put object`. Please use `dasel put -t json` or similar to achieve the same outcome.
-* Removal of `-p`,`--parser`. Please use `-r`,`--read` and `-w`,`--write`.
-  * Note that if no `-w` is given, the value of `-r` is used.
-  * `dasel -p json ...` becomes `dasel -r json ...`
-* Removal of `-m`,`--multi` flag. All selectors now act in this manner.
-* Removal of `-c`, `--compact` flag. Use `--pretty=false` instead.
-
-### Delete command
-
-The delete command remains largely the same, but the selector format has changed a lot. See selector changes below.
-
-* Removal of `-p`,`--parser`. Please use `-r`,`--read` and `-w`,`--write`.
-  * Note that if no `-w` is given, the value of `-r` is used.
-  * `dasel -p json ...` becomes `dasel -r json ...`
-* Removal of `-m`,`--multi` flag. All selectors now act in this manner.
-* Removal of `-c`, `--compact` flag. Use `--pretty=false` instead.
-
-### Update command
-
-The self-update functionality within dasel has been completely removed. Please use package managers to achieve this functionality.
-
-### Selector changes
-
-Dasel selectors have been completely reworked.
-
-The purpose of this is to allow users to build their own complex logic and filtering without needing specific code being written to handle their use-case.
-
-Please see the [function overview](broken-reference) for function documentation and examples.
+1. Edit the Markdown files in the `src/` directory.
+2. Update `src/SUMMARY.md` if adding new pages.
+3. Test your changes with `mdbook build` command.
+4. Submit a pull request.
