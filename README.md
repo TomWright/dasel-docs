@@ -1,22 +1,32 @@
-# Introduction
+# Dasel Documentation
 
-{% hint style="info" %}
-Dasel V3 was released in December 2025. Please raise any issues on [GitHub](https://github.com/TomWright/dasel).
-{% endhint %}
+This repository contains the documentation for [Dasel](https://github.com/TomWright/dasel), built using [mdBook](https://rust-lang.github.io/mdBook/).
 
-<figure><img src=".gitbook/assets/daselgopher.png" alt="Dasel mascot" width="375"><figcaption></figcaption></figure>
+## Prerequisites
 
-Dasel (short for **Data-Select**) is a command-line tool and library for querying, modifying, and transforming data structures such as JSON, YAML, TOML, XML, and CSV.
+Install mdBook:
 
-It provides a consistent , powerful syntax to traverse and update data - making it useful for developers, DevOps, and data wrangling tasks.
+```bash
+cargo install mdbook
+```
 
-## Features
+Or using other methods from the [official installation guide](https://rust-lang.github.io/mdBook/guide/installation.html).
 
-* **Multi-format support**: JSON, YAML, TOML, XML, CSV, HCL (with more planned).
-* **Unified query syntax**: Access data in any format with the same selectors.
-* **Query & search**: Extract values, lists, or structures with intuitive syntax.
-* **Modify in place**: Update, insert, or delete values directly in structured files.
-* **Convert between formats**: Seamlessly transform data from JSON → YAML, TOML → JSON, etc.
-* **Script-friendly**: Simple CLI integration for shell scripts and pipelines.
-* **Library support**: Import and use in Go projects.
+## Building the Documentation
 
+To build the documentation:
+
+```bash
+mdbook build
+```
+
+The generated HTML files will be in the `book/v3` directory.
+
+## Contributing
+
+When adding or modifying documentation:
+
+1. Edit the Markdown files in the `src/` directory.
+2. Update `src/SUMMARY.md` if adding new pages.
+3. Test your changes with `mdbook build` command.
+4. Submit a pull request.
