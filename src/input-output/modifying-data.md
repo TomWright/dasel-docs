@@ -1,9 +1,8 @@
 # Modifying data
 
-{% hint style="success" %}
-Use `--root` whenever you are **modifying data and intend to save it back to a file**.\
-This ensures you get the complete updated document rather than just the changed value.
-{% endhint %}
+> [!TIP]
+> Use `--root` whenever you are **modifying data and intend to save it back to a file**.\
+> This ensures you get the complete updated document rather than just the changed value.
 
 ### Output Behaviour
 

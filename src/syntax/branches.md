@@ -1,8 +1,7 @@
 # Branches
 
-{% hint style="warning" %}
-This feature is potentially unstable. Must be used with the `--unstable` flag.
-{% endhint %}
+> [!WARNING]
+> This feature is potentially unstable. Must be used with the `--unstable` flag.
 
 Dasel includes the concept of branches. `branch` allows you to perform one or more sub queries, with each query output as a separate document.
 

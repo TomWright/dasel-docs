@@ -1,0 +1,67 @@
+.version-switcher {
+    position: relative;
+    display: inline-block;
+}
+
+.version-switcher-button {
+    background: none;
+    border: none;
+    color: var(--icons);
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    line-height: 50px;
+    width: 40px;
+    text-align: center;
+    transition: color 0.15s ease;
+}
+
+.version-switcher-button:hover {
+    color: var(--icons-hover);
+}
+
+.version-switcher-button:focus {
+    outline: none;
+}
+
+.version-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--theme-popup-bg);
+    border: 1px solid var(--theme-popup-border);
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    min-width: 150px;
+    z-index: 1000;
+    margin-top: 5px;
+}
+
+.version-menu.show {
+    display: block;
+}
+
+.version-menu-item {
+    display: block;
+    padding: 8px 16px;
+    color: var(--fg);
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.version-menu-item:hover {
+    background-color: var(--theme-hover);
+}
+
+.version-menu-item.active {
+    background-color: var(--theme-hover);
+    font-weight: bold;
+}
