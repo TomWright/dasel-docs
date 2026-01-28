@@ -6,9 +6,8 @@ Dynamic selectors allow you to select items from lists or maps when you don't kn
 
 ## Usage
 
-{% hint style="info" %}
-You can use a selector as the key to create more complex conditions.
-{% endhint %}
+> [!NOTE]
+> You can use a selector as the key to create more complex conditions.
 
 ```shell
 .(<key>=<value>)

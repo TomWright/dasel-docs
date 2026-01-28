@@ -8,9 +8,8 @@ Allows you to format dasel output according to the given template.
 
 Pass the `--format` flag to [select](../select.md) commands.
 
-{% hint style="info" %}
-Available in `select` commands since `v1.18.0`.
-{% endhint %}
+> [!NOTE]
+> Available in `select` commands since `v1.18.0`.
 
 ## Functions and accessors
 
@@ -29,9 +28,8 @@ It is recommended that you use the `select` function with a selector to access v
 | `format "template"`         | Allows recursive calls to the formatting capability. Useful when using a `selectMultiple`. |
 | `newline`                   | Returns a newline character.                                                               |
 
-{% hint style="info" %}
-Dasel also provides access to [sprig](http://masterminds.github.io/sprig/) functions within templates to allow more functionality.
-{% endhint %}
+> [!NOTE]
+> Dasel also provides access to [sprig](http://masterminds.github.io/sprig/) functions within templates to allow more functionality.
 
 The templates are parsed using golang's `text/template` package so dasel also supports an array of conditional and loop statements by default.
 

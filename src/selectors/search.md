@@ -6,9 +6,8 @@ Search selectors recursively search all the data below the current node and retu
 
 ## Usage
 
-{% hint style="info" %}
-This must be used in conjunction with the `-m`, `--multiple` flag.
-{% endhint %}
+> [!NOTE]
+> This must be used in conjunction with the `-m`, `--multiple` flag.
 
 ```shell
 .(?:<key>=<value>)

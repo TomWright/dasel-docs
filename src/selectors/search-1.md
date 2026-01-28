@@ -6,15 +6,13 @@ Search optional selectors recursively search all the data below the current node
 
 This differs from search in that the query does not fail when the field you filter on does not exist.
 
-{% hint style="info" %}
-Available since `v1.26.0.`
-{% endhint %}
+> [!NOTE]
+> Available since `v1.26.0.`
 
 ## Usage
 
-{% hint style="info" %}
-This must be used in conjunction with the `-m`, `--multiple` flag.
-{% endhint %}
+> [!NOTE]
+> This must be used in conjunction with the `-m`, `--multiple` flag.
 
 ```shell
 .(#:<key>=<value>)

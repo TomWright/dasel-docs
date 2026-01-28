@@ -6,9 +6,8 @@ The key/index selector is used to return a list of all keys/indexes in the curre
 
 ## Usage
 
-{% hint style="info" %}
-This must be used in conjunction with the `-m`, `--multiple` flag.
-{% endhint %}
+> [!NOTE]
+> This must be used in conjunction with the `-m`, `--multiple` flag.
 
 ```shell
 .-

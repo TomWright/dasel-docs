@@ -10,9 +10,8 @@ Pass the `--escape-html=true` or `--escape-html=false` flag to any dasel command
 
 Defaults to `false`.
 
-{% hint style="info" %}
-Supported in JSON write parser since v1.21.0.
-{% endhint %}
+> [!NOTE]
+> Supported in JSON write parser since v1.21.0.
 
 ## Example
 

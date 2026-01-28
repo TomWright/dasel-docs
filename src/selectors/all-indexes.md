@@ -6,9 +6,8 @@ The all indexes selector allows you to target all items of a list or map.
 
 ## Usage
 
-{% hint style="info" %}
-This must be used in conjunction with the `-m`, `--multiple` flag.
-{% endhint %}
+> [!NOTE]
+> This must be used in conjunction with the `-m`, `--multiple` flag.
 
 ```shell
 .[*]

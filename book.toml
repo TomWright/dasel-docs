@@ -1,0 +1,18 @@
+[book]
+title = "Dasel Documentation"
+authors = ["Tom Wright"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book/v1"
+
+[output.html]
+git-repository-url = "https://github.com/TomWright/dasel-docs"
+edit-url-template = "https://github.com/TomWright/dasel-docs/edit/v1/{path}"
+additional-css = [
+  "theme/version-switcher.css"
+]
+additional-js = [
+  "theme/version-switcher.js"
+]

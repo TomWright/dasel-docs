@@ -6,9 +6,8 @@ This command allows you validate files.
 
 It will not modify the source data in any way.
 
-{% hint style="info" %}
-Available since `v1.25.0.`
-{% endhint %}
+> [!NOTE]
+> Available since `v1.25.0.`
 
 ## Usage
 

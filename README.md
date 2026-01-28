@@ -1,13 +1,32 @@
-# Introduction
+# Dasel Documentation
 
-{% hint style="warning" %}
-You are viewing dasel v1 documentation.
-{% endhint %}
+This repository contains the documentation for [Dasel](https://github.com/TomWright/dasel), built using [mdBook](https://rust-lang.github.io/mdBook/).
 
-Dasel (short for data-selector) allows you to query and modify data structures using selector strings.
+## Prerequisites
 
-## One tool to rule them all
+Install mdBook:
 
-Say good bye to learning new tools just to work with a different data format.
+```bash
+cargo install mdbook
+```
 
-Dasel uses a standard selector syntax no matter the data format. This means that once you learn how to use dasel you immediately have the ability to query/modify any of the supported data types without any additional tools or effort.
+Or using other methods from the [official installation guide](https://rust-lang.github.io/mdBook/guide/installation.html).
+
+## Building the Documentation
+
+To build the documentation:
+
+```bash
+mdbook build
+```
+
+The generated HTML files will be in the `book/v1` directory.
+
+## Contributing
+
+When adding or modifying documentation:
+
+1. Edit the Markdown files in the `src/` directory.
+2. Update `src/SUMMARY.md` if adding new pages.
+3. Test your changes with `mdbook build` command.
+4. Submit a pull request.

@@ -60,33 +60,33 @@ nix-env -iA nixos.dasel
 
 You can download a compiled executable from the [latest release](https://github.com/TomWright/dasel/releases/latest).
 
-{% hint style="info" %}
-Don't forget to put the binary somewhere in your `PATH`.
-{% endhint %}
+> [!NOTE]
+> Don't forget to put the binary somewhere in your `PATH`.
 
-{% tabs %}
-{% tab title="Linux (64 bit)" %}
+
+### Linux (64 bit)
+
 
 ```
 curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep linux_amd64 | grep -v .gz | cut -d\" -f 4)" -L -o dasel && chmod +x dasel
 mv ./dasel /usr/local/bin/dasel
 ```
 
-{% endtab %}
 
-{% tab title="Mac OS (64 bit)" %}
+
+### Mac OS (64 bit)
+
 
 ```
 curl -sSLf "$(curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest | grep browser_download_url | grep -v .gz | grep darwin_amd64 | cut -d\" -f 4)" -L -o dasel && chmod +x dasel
 mv ./dasel /usr/local/bin/dasel
 ```
 
-{% endtab %}
 
-{% tab title="Windows" %}
+
+### Windows
+
 Manually download a compiled executable from the [latest release](https://github.com/TomWright/dasel/releases/latest).
-{% endtab %}
-{% endtabs %}
 
 ## Scoop
 
@@ -101,9 +101,8 @@ scoop install dasel
 
 You can `go install` the `cmd/dasel` package to build and install dasel for you.
 
-{% hint style="info" %}
-You may need to prefix the command with `GO111MODULE=on` in order for this to work.
-{% endhint %}
+> [!NOTE]
+> You may need to prefix the command with `GO111MODULE=on` in order for this to work.
 
 ```
 go install github.com/tomwright/dasel/cmd/dasel@master
