@@ -47,9 +47,8 @@ selected
 
 ### Ternary Operator (`? :`)
 
-{% hint style="danger" %}
-Not yet implemented.
-{% endhint %}
+> [!WARNING]
+> Not yet implemented.
 
 The ternary form is shorter and useful for inline conditions.
 

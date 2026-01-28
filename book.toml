@@ -1,0 +1,12 @@
+[book]
+title = "Dasel Documentation"
+authors = ["Tom Wright"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book/v3"
+
+[output.html]
+git-repository-url = "https://github.com/TomWright/dasel-docs"
+edit-url-template = "https://github.com/TomWright/dasel-docs/edit/v3/{path}"

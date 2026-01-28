@@ -8,9 +8,8 @@ Your application can do the same.
 
 ## External API
 
-{% hint style="info" %}
-Ensure you have imported the appropriate parsing packages. [See parsing](https://github.com/TomWright/dasel/tree/master/parsing).
-{% endhint %}
+> [!NOTE]
+> Ensure you have imported the appropriate parsing packages. [See parsing](https://github.com/TomWright/dasel/tree/master/parsing).
 
 Dasel exposes a simple API that can be consumed by your go packages/modules.
 
