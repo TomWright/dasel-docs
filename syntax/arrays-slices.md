@@ -11,7 +11,7 @@ A slice/array is a sequence of elements. They are zero indexed, not a fixed size
 ## Appending elements to an array
 
 ```
-[$someArray, 4]
+[$someArray..., 4]
 ```
 
 ## Removing elements from an array
