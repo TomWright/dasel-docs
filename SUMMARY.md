@@ -49,6 +49,7 @@
 * [each](functions/each.md)
 * [filter](functions/filter.md)
 * [join](functions/join.md)
+* [replace](functions/replace.md)
 * [search](functions/search.md)
 * [sortBy](functions/sortby.md)
 * [sum](functions/sum.md)
