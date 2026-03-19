@@ -41,6 +41,7 @@
 * [min](functions/min.md)
 * [max](functions/max.md)
 * [reverse](functions/reverse.md)
+* [keys](functions/keys.md)
 * [toString](functions/tostring.md)
 * [toInt](functions/toint.md)
 * [toFloat](functions/tofloat.md)
