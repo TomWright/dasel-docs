@@ -8,6 +8,15 @@ Note that these variables are essentially globals, and once defined, they are ac
 
 Variables can be used alongside `stdin`.
 
+## Inline
+
+Inline variables are those defined within a dasel query itself and should be terminated with a semicolon.
+
+```bash
+$ dasel -i json '$x = 1; $y = 2; $x + $y'
+3
+```
+
 ## From the environment
 
 You can access environment variables using `$ENV_VAR_NAME`.&#x20;
