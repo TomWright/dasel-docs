@@ -102,8 +102,8 @@ mv ./dasel /usr/local/bin/dasel
 
 {% tab title="Windows" %}
 ```powershell
-$releases = curl -sSLf https://api.github.com/repos/tomwright/dasel/releases/latest
-Invoke-WebRequest -Uri (($releases | ConvertFrom-Json).assets `
+$releases = Invoke-RestMethod -Uri https://api.github.com/repos/tomwright/dasel/releases/latest
+Invoke-WebRequest -Uri ($releases.assets `
                     | Where-Object { $_.name -eq "dasel_windows_amd64.exe" } `
                     | Select-Object -ExpandProperty browser_download_url) `
                     -OutFile dasel.exe
