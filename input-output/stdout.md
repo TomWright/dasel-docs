@@ -31,3 +31,19 @@ $ echo '{"user": {"name": "John"}}' |
 // outputs
 <strong>{"user": {"name": {"first": "John", "last": "Doe"}}}
 </strong></code></pre>
+
+## Compact output
+
+By default, dasel pretty-prints structured output with indentation and newlines. Use the `--compact` flag to produce compact output with no extra whitespace.
+
+This is supported for JSON, TOML, YAML, and XML formats.
+
+```
+$ echo '{"name": "Tom", "age": 30}' | dasel -i json -o json --compact
+{"name":"Tom","age":30}
+```
+
+```
+$ echo '<Root><Name>Tom</Name></Root>' | dasel -i xml -o xml --compact
+<Root><Name>Tom</Name></Root>
+```
