@@ -4,6 +4,8 @@
 
 * [Introduction](README.md)
 * [Installation](getting-started/installation.md)
+* [Shell Completion](getting-started/shell-completion.md)
+* [Man Page](getting-started/man-page.md)
 * [Usage from Go](getting-started/usage-from-go.md)
 
 ## Syntax
