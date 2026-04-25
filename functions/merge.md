@@ -1,6 +1,6 @@
 # merge
 
-Merges two or more maps together into a single map. If multiple maps contain the same key, the value from the later argument takes precedence.
+Deep-merges two or more maps together into a single map. Nested maps are recursively merged key-by-key. For non-map values (scalars, slices) or when keys exist in multiple arguments, the value from the later argument takes precedence.
 
 #### Syntax
 
@@ -28,6 +28,13 @@ merge({"a": 1, "b": 2}, {"b": 3, "c": 4})
 // {"a": 1, "b": 3, "c": 4}
 ```
 
+**Deep merge nested maps**
+
+```
+merge({"a": {"x": 1, "y": 2}}, {"a": {"y": 3, "z": 4}})
+// {"a": {"x": 1, "y": 3, "z": 4}}
+```
+
 **Merge multiple maps**
 
 ```
@@ -48,5 +55,8 @@ $ echo '{"defaults": {"color": "red", "size": 10}, "overrides": {"size": 20}}' \
 
 #### Notes
 
-* Merge is shallow — nested maps are replaced, not recursively merged.
-* All arguments must be maps. Merging arrays or scalars is not supported.
+* Merge is deep — nested maps are recursively merged key-by-key.
+* Slices and scalar values are replaced, not concatenated or merged.
+* If one argument has a map at a key and another has a non-map value at the same key, the later value wins.
+* All arguments must be maps. Merging arrays or scalars at the top level is not supported.
+* For shallow merge semantics, use the spread operator: `{$a..., $b...}`.
