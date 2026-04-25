@@ -6,15 +6,19 @@ This feature is potentially unstable. Must be used with the `--unstable` flag.
 
 Dasel includes the concept of branches. `branch` allows you to perform one or more sub queries, with each query output as a separate document.
 
-This documentation is a little light, but will be improved with time.
+---
 
-## Examples
+## Without branching
 
-#### Without branching
+When we don't branch, the result is an array containing the items.
 
-When we don't branch, notice how the result is an array containing numbers.
+Given `numbers.json`:
 
-```sh
+```json
+{ "numbers": [{"x": 1}, {"x": 2}, {"x": 3}] }
+```
+
+```bash
 $ cat numbers.json | dasel -i json 'numbers'
 [
     {
@@ -29,11 +33,13 @@ $ cat numbers.json | dasel -i json 'numbers'
 ]
 ```
 
-#### Branching on numbers
+---
 
-When we branch on the numbers, we actually get separate JSON documents out at the end.
+## Branching on an array
 
-```sh
+When we branch, each element is output as a **separate document** instead of a single array.
+
+```bash
 $ cat numbers.json | dasel -i json 'branch(numbers...)'
 {
     "x": 1
@@ -46,12 +52,35 @@ $ cat numbers.json | dasel -i json 'branch(numbers...)'
 }
 ```
 
-#### Filtering on a branch
+---
 
-Since `filter` must be used on arrays and a branch isn't technically an array, we can instead use `ignore`. This marks a specific branch as irrelevant and it will be stripped from the result.
+## Filtering branches with ignore
 
-<pre class="language-sh"><code class="lang-sh"><strong>[1,2,3].branch().if ( $this==2 ) { ignore() } else { $this }
-</strong>2
+Since `filter` operates on arrays and a branch isn't technically an array, you can use [`ignore`](../functions/ignore.md) to exclude specific branches from the result.
+
+```bash
+$ echo '[1, 2, 3]' | dasel -i json 'branch().if ($this == 2) { ignore() } else { $this }'
+1
 3
-</code></pre>
+```
 
+Here, the element `2` is matched by the condition and `ignore()` removes it from the output. The remaining elements `1` and `3` are output as separate documents.
+
+---
+
+## Extracting multiple fields as separate documents
+
+```bash
+$ echo '{"name": "Tom", "age": 30, "city": "London"}' \
+  | dasel -i json 'branch(name, age)'
+"Tom"
+30
+```
+
+---
+
+## Notes
+
+* `branch` converts an array (or multiple values) into separate output documents.
+* Use the [spread operator](spread.md) (`...`) to unpack an array into branch arguments.
+* Use [`ignore`](../functions/ignore.md) to conditionally exclude branches.

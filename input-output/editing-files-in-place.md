@@ -1,21 +1,62 @@
 # Editing files in place
 
-With V3 the in-process file editing was removed so I can re-evaluate if it is actually needed and what it should look like.
+With V3, built-in file editing was removed to allow for re-evaluation. In the meantime, you can edit files in place using shell redirection and a temporary file.
 
-In the meantime, the following is an example of how you can edit in-place.
+---
 
+## Basic pattern
+
+```bash
+dasel -i <format> --root '<query>' < file > file.tmp && mv file.tmp file
 ```
-dasel -i toml --root 'foo = "bar"' < file.toml > file.toml.tmp \
-&& mv file.toml.tmp file.toml
+
+1. Read the file into dasel via `< file`
+2. Redirect the output to a temporary file via `> file.tmp`
+3. Move the temporary file over the original via `mv file.tmp file`
+
+It is important to use the `--root` flag — this ensures dasel outputs the entire document, not just the modified value.
+
+---
+
+## Examples
+
+### Update a value in a TOML file
+
+```bash
+dasel -i toml --root 'foo = "bar"' < config.toml > config.toml.tmp \
+  && mv config.toml.tmp config.toml
 ```
 
-1. Read a file into dasel `< file.toml`
-2. Redirect the output to a tmp file `> file.toml.tmp`
-3. Move the tmp file over the original `mv file.toml.tmp file.toml`
+### Update a value in a JSON file
 
-It is important to use the `--root` flag - this ensures dasel outputs the entire document.
+```bash
+dasel -i json --root 'settings.theme = "dark"' < config.json > config.json.tmp \
+  && mv config.json.tmp config.json
+```
 
-### Why do we need to go via a tmp file?
+### Add a new field to a YAML file
 
-When you redirect output to a file bash will truncate that file before running the command.\
-This usually doesn't cause an issue but will will in this case as the file is then empty when dasel tries to read it.
+```bash
+dasel -i yaml --root '{$root..., "newField": "value"}' < data.yaml > data.yaml.tmp \
+  && mv data.yaml.tmp data.yaml
+```
+
+### Shell function for convenience
+
+You can wrap this pattern in a shell function:
+
+```bash
+dasel-edit() {
+  local format="$1" query="$2" file="$3"
+  dasel -i "$format" --root "$query" < "$file" > "$file.tmp" && mv "$file.tmp" "$file"
+}
+
+# Usage:
+dasel-edit json 'name = "Tom"' config.json
+```
+
+---
+
+## Why use a temporary file?
+
+When you redirect output to a file, the shell truncates that file **before** running the command. This means the file would be empty when dasel tries to read it. The temporary file avoids this race condition.

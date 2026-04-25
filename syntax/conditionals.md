@@ -1,23 +1,24 @@
 # Conditionals
 
-Conditionals allow you to select different values depending on an expression.\
-Dasel v3 supports both a **long form** `if/else` block and a compact **ternary operator**.
+Conditionals allow you to select different values depending on an expression.
+Dasel v3 supports an `if/elseif/else` block syntax.
 
-***
+---
 
-### Long Form (`if/else`)
-
-The long form is more explicit and easier to read for complex conditions.
+### Syntax
 
 ```
-if (<condition>) { <then-expression> } else { <else-expression> }
+if (<condition>) { <then> } else { <else> }
 ```
 
 * `<condition>` must evaluate to a boolean.
-* `<then-expression>` is evaluated if the condition is true.
-* `<else-expression>` is evaluated if the condition is false.
+* `<then>` is evaluated if the condition is true.
+* `<else>` is evaluated if the condition is false.
+* An `else` branch is always required.
 
-#### Example
+---
+
+### Basic Example
 
 **Input JSON**
 
@@ -33,8 +34,8 @@ if (<condition>) { <then-expression> } else { <else-expression> }
 
 **Query**
 
-```sh
-$ dasel -i json -f input.json '.foo.if(bar == "baz") { bong } else { qux }'
+```bash
+$ dasel -i json -f input.json 'foo.if (bar == "baz") { bong } else { qux }'
 ```
 
 **Output**
@@ -43,18 +44,14 @@ $ dasel -i json -f input.json '.foo.if(bar == "baz") { bong } else { qux }'
 selected
 ```
 
-***
+---
 
-### Ternary Operator (`? :`)
+### Elseif Chains
 
-{% hint style="danger" %}
-Not yet implemented.
-{% endhint %}
-
-The ternary form is shorter and useful for inline conditions.
+Use `elseif` to chain multiple conditions. You can use as many `elseif` branches as needed.
 
 ```
-<condition> ? <then-expression> : <else-expression>
+if (<condition1>) { <result1> } elseif (<condition2>) { <result2> } else { <default> }
 ```
 
 #### Example
@@ -62,34 +59,53 @@ The ternary form is shorter and useful for inline conditions.
 **Input JSON**
 
 ```json
-{
-  "foo": {
-    "bar": "qux",
-    "bong": "selected",
-    "qux": "not-selected"
-  }
-}
+{ "score": 75 }
 ```
 
 **Query**
 
-```sh
-$ dasel -i json -f input.json '.foo.(bar == "baz" ? bong : qux)'
+```bash
+$ dasel -i json -f input.json '
+  if (score >= 90) { "A" }
+  elseif (score >= 80) { "B" }
+  elseif (score >= 70) { "C" }
+  else { "F" }
+'
 ```
 
 **Output**
 
 ```
-not-selected
+C
 ```
 
-***
+#### Fizzbuzz with elseif
 
-### Literals and Nesting
+Given `numbers.json`:
 
-Both forms support literals and nested expressions.
+```json
+{ "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15] }
+```
 
-#### Example 1: Literal results
+```bash
+$ cat numbers.json | dasel -i json 'numbers.map(
+    if ($this % 3 == 0 && $this % 5 == 0) {
+        "fizzbuzz"
+    } elseif ($this % 5 == 0) {
+        "buzz"
+    } elseif ($this % 3 == 0) {
+        "fizz"
+    } else {
+        $this
+    }
+)'
+```
+
+---
+
+### Literal Results
+
+Both branches can return literal values, not just field lookups.
 
 **Input JSON**
 
@@ -99,8 +115,8 @@ Both forms support literals and nested expressions.
 
 **Query**
 
-```sh
-$ dasel -i json -f input.json 'if(count > 5) { "many" } else { "few" }'
+```bash
+$ dasel -i json -f input.json 'if (count > 5) { "many" } else { "few" }'
 ```
 
 **Output**
@@ -109,35 +125,26 @@ $ dasel -i json -f input.json 'if(count > 5) { "many" } else { "few" }'
 many
 ```
 
-***
+---
 
-#### Example 2: Nested ternaries
+### Nested Conditionals
 
-**Input JSON**
+Conditionals can be nested in the `else` branch.
 
-```json
-{ "foo": { "bar": "zap", "bong": "BONG", "qux": "QUX", "zap": "ZAP", "default": "DEF" } }
+```bash
+$ dasel -i json -f input.json '
+  if (status == "active") { "go" }
+  else { if (status == "pending") { "wait" } else { "stop" } }
+'
 ```
 
-**Query**
+For multi-branch cases, `elseif` is cleaner than nesting.
 
-```sh
-$ dasel -i json -f input.json '.foo.(bar == "baz" ? bong : (bar == "qux" ? qux : default))'
-```
-
-**Output**
-
-```
-DEF
-```
-
-***
+---
 
 ### Notes
 
-* **An `else` branch is required.**\
-  Both the `if/else` and ternary forms must specify an `else` result.
-* **Both branches must return a value.**\
-  A conditional always evaluates to a result — you cannot have an empty branch.
-* Parentheses are recommended when nesting conditionals.
-* Both branches must be valid dasel expressions (selectors, literals, or functions).
+* An `else` branch is always required — both `if/else` and `if/elseif/else` must have a final `else`.
+* Both branches must return a value — you cannot have an empty branch.
+* Use `elseif` (one word, no space) for chained conditions.
+* Parentheses around the condition are required.

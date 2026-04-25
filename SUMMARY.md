@@ -17,6 +17,7 @@
 * [String concatenation](syntax/string-concatenation.md)
 * [Arrays/slices](syntax/arrays-slices.md)
 * [Objects/maps](syntax/objects-maps.md)
+* [Operators](syntax/operators.md)
 * [Conditionals](syntax/conditionals.md)
 * [Spread](syntax/spread.md)
 * [Coalesce](syntax/coalesce.md)
@@ -87,3 +88,7 @@
 * [typeOf](functions/typeof.md)
 * [unique](functions/unique.md)
 * [values](functions/values.md)
+
+## Cookbook
+
+* [Recipes](cookbook.md)
