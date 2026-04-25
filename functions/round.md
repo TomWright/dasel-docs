@@ -20,17 +20,30 @@ or chained:
 
 #### Examples
 
+**Round up**
+
 ```
 round(3.5)
 // 4
 ```
+
+**Round down**
 
 ```
 round(3.4)
 // 3
 ```
 
+**Negative values**
+
 ```
 round(-2.5)
 // -2
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"score": 7.6}' | dasel -i json 'round(score)'
+8
 ```

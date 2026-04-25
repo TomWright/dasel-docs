@@ -20,17 +20,30 @@ or chained:
 
 #### Examples
 
+**Round down a positive float**
+
 ```
 floor(3.7)
 // 3
 ```
+
+**Negative values round toward negative infinity**
 
 ```
 floor(-2.3)
 // -3
 ```
 
+**Integer input unchanged**
+
 ```
 floor(5)
 // 5
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"price": 9.99}' | dasel -i json 'floor(price)'
+9
 ```

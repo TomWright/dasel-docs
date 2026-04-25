@@ -21,25 +21,35 @@ or chained:
 
 #### Examples
 
-```
-stringify("json", {"a": 1})
-```
-
-**Output:**
+**Serialize to JSON**
 
 ```
+stringify("json", {"a": 1, "b": 2})
+```
+
+Output:
+
+```json
 {
-    "a": 1
+    "a": 1,
+    "b": 2
 }
 ```
 
-**Chained usage:**
+**Chained usage**
 
 ```
-{"name": "Tom"}.stringify("json")
+{"name": "Tom"}.stringify("yaml")
 ```
 
-**Roundtrip with parse:**
+**CLI usage — convert a sub-object to a JSON string**
+
+```bash
+$ echo '{"config": {"host": "localhost", "port": 8080}}' \
+  | dasel -i json 'config.stringify("json")'
+```
+
+**Roundtrip with parse**
 
 ```
 parse("json", stringify("json", {"a": 1})).a

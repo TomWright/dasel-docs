@@ -14,14 +14,31 @@ None.
 
 #### Examples
 
-```
+**Conditionally exclude a value**
+
+Given `input.json`:
+
+```json
 {
   "name": "Tom",
   "age": 30
-} | (
+}
+```
+
+```bash
+$ dasel -i json -f input.json '(name, if (age > 40) { age } else { ignore() })'
+Tom
+```
+
+Since `age` is not greater than 40, the `ignore()` branch is taken and only `name` is output.
+
+**Filter branches in a multi-select**
+
+```
+(
   name,
-  age > 40 ? age : ignore()
+  if (has("email")) { email } else { ignore() }
 )
 ```
 
-In this example, since `age` is not greater than 40, the `ignore()` branch is taken and the age value is excluded from the output.
+This outputs `email` only if the field exists, without erroring on missing keys.

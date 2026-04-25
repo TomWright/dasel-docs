@@ -1,6 +1,6 @@
 # all
 
-Returns `true` if all elements in an array match the given predicate. This is an expression, not a function - the predicate is evaluated against each element using `$this` to refer to the current element.
+Returns `true` if all elements in an array match the given predicate. This is an expression — the predicate is evaluated against each element using `$this` to refer to the current element.
 
 #### Syntax
 
@@ -14,6 +14,8 @@ Returns `true` if all elements in an array match the given predicate. This is an
 
 #### Examples
 
+**Check if all numbers are positive**
+
 ```
 [1, 2, 3].all($this > 0)
 // true
@@ -24,7 +26,17 @@ Returns `true` if all elements in an array match the given predicate. This is an
 // false
 ```
 
+**Check a field on objects**
+
 ```
 [{"active": true}, {"active": true}].all($this.active == true)
 // true
+```
+
+**CLI usage — verify all items have a required field**
+
+```bash
+$ echo '{"items": [{"name": "a", "price": 10}, {"name": "b", "price": 20}]}' \
+  | dasel -i json 'items.all(has("price"))'
+true
 ```

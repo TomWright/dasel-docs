@@ -20,12 +20,30 @@ or chained:
 
 #### Examples
 
+**Function call**
+
 ```
 toUpper("hello")
 // "HELLO"
 ```
 
+**Chained usage**
+
 ```
 "hello world".toUpper()
 // "HELLO WORLD"
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"status": "active"}' | dasel -i json 'status.toUpper()'
+ACTIVE
+```
+
+**Transform all values in an array**
+
+```
+["alice", "bob"].map(toUpper($this))
+// ["ALICE", "BOB"]
 ```

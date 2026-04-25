@@ -20,12 +20,23 @@ or chained:
 
 #### Examples
 
+**Function call**
+
 ```
 trim("  hello  ")
 // "hello"
 ```
 
+**Chained usage**
+
 ```
 "  hello world  ".trim()
 // "hello world"
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"value": "  spaced  "}' | dasel -i json 'value.trim()'
+spaced
 ```

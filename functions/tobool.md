@@ -19,11 +19,35 @@ toBool(value)
 
 #### Examples
 
+**String conversions**
+
 ```
-toBool("true")   // true
-toBool("yes")    // true
-toBool("false")  // false
-toBool(1)        // true
-toBool(0)        // false
-toBool(null)     // false
+toBool("true")  // true
+toBool("yes")   // true
+toBool("1")     // true
+toBool("false") // false
+toBool("no")    // false
+toBool("0")     // false
+toBool("")      // false
+```
+
+**Numeric conversions**
+
+```
+toBool(1)   // true
+toBool(0)   // false
+toBool(3.14) // true
+```
+
+**Null**
+
+```
+toBool(null) // false
+```
+
+**CLI usage — convert a string flag to boolean**
+
+```bash
+$ echo '{"enabled": "yes"}' | dasel -i json 'toBool(enabled)'
+true
 ```

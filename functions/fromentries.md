@@ -20,12 +20,30 @@ or chained:
 
 #### Examples
 
+**Basic usage**
+
 ```
 fromEntries([{"key": "a", "value": 1}, {"key": "b", "value": 2}])
 // {"a": 1, "b": 2}
 ```
 
+**Chained usage**
+
 ```
 [{"key": "name", "value": "Tom"}].fromEntries()
 // {"name": "Tom"}
+```
+
+**Roundtrip with entries**
+
+```
+{"x": 1, "y": 2}.entries().fromEntries()
+// {"x": 1, "y": 2}
+```
+
+**Build a map from transformed data**
+
+```
+["alice", "bob"].map({"key": $this, "value": toUpper($this)}).fromEntries()
+// {"alice": "ALICE", "bob": "BOB"}
 ```

@@ -21,17 +21,37 @@ or chained:
 
 #### Examples
 
+**Find a substring**
+
 ```
 indexOf("hello world", "world")
 // 6
 ```
+
+**Chained usage**
 
 ```
 "foobar".indexOf("bar")
 // 3
 ```
 
+**Not found**
+
 ```
 "hello".indexOf("xyz")
 // -1
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"path": "/api/v2/users"}' | dasel -i json 'path.indexOf("/v2")'
+4
+```
+
+**Check if a substring exists**
+
+```
+"hello world".indexOf("world") >= 0
+// true
 ```

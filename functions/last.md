@@ -20,17 +20,30 @@ or chained:
 
 #### Examples
 
+**Get the last number**
+
 ```
 last([1, 2, 3])
 // 3
 ```
+
+**Chained usage**
 
 ```
 ["a", "b", "c"].last()
 // "c"
 ```
 
+**Empty array returns null**
+
 ```
 last([])
 // null
+```
+
+**CLI usage — get the most recent entry**
+
+```bash
+$ echo '{"logs": ["started", "running", "stopped"]}' | dasel -i json 'logs.last()'
+stopped
 ```

@@ -20,16 +20,39 @@ or chained:
 
 #### Examples
 
+**Flatten nested arrays**
+
 ```
 flatten([[1, 2], [3, 4]])
 // [1, 2, 3, 4]
 ```
+
+**Mixed elements**
+
+```
+[[1, 2], 3, [4, 5]].flatten()
+// [1, 2, 3, 4, 5]
+```
+
+**Only one level deep**
 
 ```
 [[1, [2, 3]], [4]].flatten()
 // [1, [2, 3], 4]
 ```
 
+**CLI usage — combine nested tag arrays**
+
+```bash
+$ echo '{"groups": [["a", "b"], ["c", "d"]]}' | dasel -i json 'groups.flatten()'
+[
+    "a",
+    "b",
+    "c",
+    "d"
+]
+```
+
 #### Notes
 
-* Only flattens one level deep. Nested arrays within nested arrays are not recursively flattened.
+* Only flattens one level deep. To flatten deeper, chain multiple `.flatten()` calls.

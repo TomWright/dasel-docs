@@ -21,6 +21,8 @@ or chained:
 
 #### Examples
 
+**Basic checks**
+
 ```
 startsWith("hello world", "hello")
 // true
@@ -29,4 +31,18 @@ startsWith("hello world", "hello")
 ```
 "foobar".startsWith("bar")
 // false
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"url": "https://example.com"}' | dasel -i json 'url.startsWith("https")'
+true
+```
+
+**Use inside a filter**
+
+```
+["https://a.com", "http://b.com", "https://c.com"].filter(startsWith($this, "https"))
+// ["https://a.com", "https://c.com"]
 ```

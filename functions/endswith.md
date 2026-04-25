@@ -21,6 +21,8 @@ or chained:
 
 #### Examples
 
+**Basic checks**
+
 ```
 endsWith("hello world", "world")
 // true
@@ -29,4 +31,18 @@ endsWith("hello world", "world")
 ```
 "foobar".endsWith("foo")
 // false
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"file": "photo.png"}' | dasel -i json 'file.endsWith(".png")'
+true
+```
+
+**Use inside a filter**
+
+```
+["file.go", "file.md", "main.go"].filter(endsWith($this, ".go"))
+// ["file.go", "main.go"]
 ```

@@ -20,17 +20,30 @@ or chained:
 
 #### Examples
 
+**Round up a positive float**
+
 ```
 ceil(3.2)
 // 4
 ```
+
+**Negative values round toward zero**
 
 ```
 ceil(-2.7)
 // -2
 ```
 
+**Integer input unchanged**
+
 ```
 ceil(5)
 // 5
+```
+
+**CLI usage**
+
+```bash
+$ echo '{"rating": 3.2}' | dasel -i json 'ceil(rating)'
+4
 ```
