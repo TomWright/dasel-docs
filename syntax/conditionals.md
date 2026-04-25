@@ -1,7 +1,7 @@
 # Conditionals
 
 Conditionals allow you to select different values depending on an expression.
-Dasel v3 supports an `if/elseif/else` block syntax.
+Dasel v3 supports an `if/elseif/else` block syntax and a ternary operator (`?:`).
 
 ---
 
@@ -142,9 +142,60 @@ For multi-branch cases, `elseif` is cleaner than nesting.
 
 ---
 
+## Ternary Operator
+
+The ternary operator provides a compact inline syntax for conditionals.
+
+### Syntax
+
+```
+<condition> ? <then> : <else>
+```
+
+* `<condition>` must evaluate to a boolean.
+* `<then>` is returned when the condition is true.
+* `<else>` is returned when the condition is false.
+
+### Example
+
+**Input JSON**
+
+```json
+{ "age": 25 }
+```
+
+**Query**
+
+```bash
+$ dasel -i json -f input.json 'age >= 18 ? "adult" : "minor"'
+```
+
+**Output**
+
+```
+adult
+```
+
+### Nested Ternary
+
+Parentheses can be used to nest ternary expressions.
+
+```bash
+$ dasel -i json -f input.json 'true ? (false ? "a" : "b") : "c"'
+```
+
+**Output**
+
+```
+b
+```
+
+---
+
 ### Notes
 
 * An `else` branch is always required — both `if/else` and `if/elseif/else` must have a final `else`.
 * Both branches must return a value — you cannot have an empty branch.
 * Use `elseif` (one word, no space) for chained conditions.
-* Parentheses around the condition are required.
+* Parentheses around the condition are required for `if`/`elseif` blocks but not for the ternary operator.
+* The ternary operator always requires both `?` and `:` parts.
