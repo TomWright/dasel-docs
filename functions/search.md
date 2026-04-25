@@ -61,14 +61,22 @@ Commonly used predicate functions include:
 Find all nodes that contain a `name` field:
 
 ```bash
-dasel -f data.json 'search(has("name"))'
+echo '{"users":[{"id":1,"name":"Alice"},{"id":2,"name":"Bob"}],"meta":{"active":true,"score":42}}' | dasel -i json 'search(has("name"))'
 ```
 
 Output:
 
 ```json
-{ "id": 1, "name": "Alice" }
-{ "id": 2, "name": "Bob" }
+[
+    {
+        "id": 1,
+        "name": "Alice"
+    },
+    {
+        "id": 2,
+        "name": "Bob"
+    }
+]
 ```
 
 ***
@@ -78,13 +86,15 @@ Output:
 Find all nodes where the value equals `42`:
 
 ```bash
-dasel -f data.json 'search($this == 42)'
+echo '{"users":[{"id":1,"name":"Alice"},{"id":2,"name":"Bob"}],"meta":{"active":true,"score":42}}' | dasel -i json 'search($this == 42)'
 ```
 
 Output:
 
 ```json
-42
+[
+    42
+]
 ```
 
 ***
@@ -94,14 +104,22 @@ Output:
 Find all nodes that have both `id` and `name` keys:
 
 ```bash
-dasel -f data.json 'search(has("id") && has("name"))'
+echo '{"users":[{"id":1,"name":"Alice"},{"id":2,"name":"Bob"}],"meta":{"active":true,"score":42}}' | dasel -i json 'search(has("id") && has("name"))'
 ```
 
 Output:
 
 ```json
-{ "id": 1, "name": "Alice" }
-{ "id": 2, "name": "Bob" }
+[
+    {
+        "id": 1,
+        "name": "Alice"
+    },
+    {
+        "id": 2,
+        "name": "Bob"
+    }
+]
 ```
 
 ***

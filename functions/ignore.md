@@ -16,18 +16,14 @@ None.
 
 **Conditionally exclude a value**
 
-Given `input.json`:
-
-```json
-{
-  "name": "Tom",
-  "age": 30
-}
+```bash
+echo '{"name":"Tom","age":30}' | dasel -i json '(name, if (age > 40) { age } else { ignore() })'
 ```
 
-```bash
-$ dasel -i json -f input.json '(name, if (age > 40) { age } else { ignore() })'
-Tom
+Output:
+
+```
+"Tom"
 ```
 
 Since `age` is not greater than 40, the `ignore()` branch is taken and only `name` is output.

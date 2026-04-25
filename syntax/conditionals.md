@@ -35,13 +35,13 @@ if (<condition>) { <then> } else { <else> }
 **Query**
 
 ```bash
-$ dasel -i json -f input.json 'foo.if (bar == "baz") { bong } else { qux }'
+echo '{"foo":{"bar":"baz","bong":"selected","qux":"not-selected"}}' | dasel -i json 'foo.if (bar == "baz") { bong } else { qux }'
 ```
 
 **Output**
 
 ```
-selected
+"selected"
 ```
 
 ---
@@ -65,7 +65,7 @@ if (<condition1>) { <result1> } elseif (<condition2>) { <result2> } else { <defa
 **Query**
 
 ```bash
-$ dasel -i json -f input.json '
+echo '{"score": 75}' | dasel -i json '
   if (score >= 90) { "A" }
   elseif (score >= 80) { "B" }
   elseif (score >= 70) { "C" }
@@ -76,7 +76,7 @@ $ dasel -i json -f input.json '
 **Output**
 
 ```
-C
+"C"
 ```
 
 #### Fizzbuzz with elseif
@@ -116,13 +116,13 @@ Both branches can return literal values, not just field lookups.
 **Query**
 
 ```bash
-$ dasel -i json -f input.json 'if (count > 5) { "many" } else { "few" }'
+echo '{"count": 7}' | dasel -i json 'if (count > 5) { "many" } else { "few" }'
 ```
 
 **Output**
 
 ```
-many
+"many"
 ```
 
 ---
@@ -132,7 +132,7 @@ many
 Conditionals can be nested in the `else` branch.
 
 ```bash
-$ dasel -i json -f input.json '
+echo '{"status": "pending"}' | dasel -i json '
   if (status == "active") { "go" }
   else { if (status == "pending") { "wait" } else { "stop" } }
 '
@@ -167,13 +167,13 @@ The ternary operator provides a compact inline syntax for conditionals.
 **Query**
 
 ```bash
-$ dasel -i json -f input.json 'age >= 18 ? "adult" : "minor"'
+echo '{"age": 25}' | dasel -i json 'age >= 18 ? "adult" : "minor"'
 ```
 
 **Output**
 
 ```
-adult
+"adult"
 ```
 
 ### Nested Ternary
@@ -181,13 +181,13 @@ adult
 Parentheses can be used to nest ternary expressions.
 
 ```bash
-$ dasel -i json -f input.json 'true ? (false ? "a" : "b") : "c"'
+echo '{}' | dasel -i json 'true ? (false ? "a" : "b") : "c"'
 ```
 
 **Output**
 
 ```
-b
+"b"
 ```
 
 ---
