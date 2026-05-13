@@ -56,6 +56,7 @@
 * [floor](functions/floor.md)
 * [fromEntries](functions/fromentries.md)
 * [get](functions/get.md)
+* [groupBy](functions/groupby.md)
 * [has](functions/has.md)
 * [ignore](functions/ignore.md)
 * [indexOf](functions/indexof.md)
