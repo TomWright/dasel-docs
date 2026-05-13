@@ -2,7 +2,7 @@
 
 The `each` function iterates through each item of an array, similar to a foreach loop.
 
-The current item is accessible via the `$this` variable.
+The current item is accessible via the `$this` variable. The current index is accessible via `$key`.
 
 The return values from `each` are ignored — it is useful when you want to modify values in-place.
 

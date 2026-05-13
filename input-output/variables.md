@@ -88,3 +88,32 @@ It is also available in [spread](../syntax/spread.md) contexts and when accessin
 ["hello", "WORLD"].map(toLower($this))
 // ["hello", "world"]
 ```
+
+### `$key`
+
+`$key` refers to the **current index or key** during iteration. For arrays/slices it is an integer index (starting at 0); for maps/objects it is the string key name.
+
+`$key` is available inside all iteration expressions:
+
+* [`map`](../functions/map.md) / [`filter`](../functions/filter.md) / [`each`](../functions/each.md) / [`sortBy`](../functions/sortby.md) / [`groupBy`](../functions/groupby.md) — `$key` is the slice index.
+* [`any`](../functions/any.md) / [`all`](../functions/all.md) / [`count`](../functions/count.md) / [`reduce`](../functions/reduce.md) — `$key` is the slice index.
+* [`mapValues`](../functions/mapvalues.md) — `$key` is the map key name (string).
+* [`search`](../functions/search.md) / [recursive descent](../syntax/recursive-descent.md) — `$key` is the map key (string) or slice index (int) depending on context.
+
+`$key` is scoped to the iteration — it does not leak into outer expressions.
+
+#### Examples
+
+```
+[10, 20, 30].map($key)
+// [0, 1, 2]
+
+[10, 20, 30].filter($key >= 1)
+// [20, 30]
+
+{"a": 1, "b": 2}.mapValues($key)
+// {"a": "a", "b": "b"}
+
+[10, 20, 30].map($key + $this)
+// [10, 21, 32]
+```

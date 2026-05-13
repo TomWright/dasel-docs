@@ -15,6 +15,12 @@ Defaults to ascending.
 [1, 3, 5, 2, 4].sortBy($this, desc) // [5, 4, 3, 2, 1]
 ```
 
+### Reverse original order using `$key`
+
+```sh
+[10, 20, 30].sortBy($key, desc) // [30, 20, 10]
+```
+
 ### Sort by nested property
 
 ```sh

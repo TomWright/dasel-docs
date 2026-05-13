@@ -12,7 +12,7 @@ The `reduce` function folds an array into a single value using an accumulator. I
 
 * **expr** - An expression evaluated against each element to produce the current value. Use `$this` to refer to the current element, or a field name to extract a property.
 * **init** - The initial value of the accumulator.
-* **update** - An expression evaluated for each element to produce the next accumulator value. Use `$acc` to refer to the current accumulator and `$this` to refer to the value produced by `expr`.
+* **update** - An expression evaluated for each element to produce the next accumulator value. Use `$acc` to refer to the current accumulator, `$this` to refer to the value produced by `expr`, and `$key` to refer to the current index.
 
 #### Examples
 
@@ -52,6 +52,13 @@ The `reduce` function folds an array into a single value using an accumulator. I
 ```bash
 $ echo '[1,2,3,4,5]' | dasel 'reduce($this, 0, $acc + $this)'
 15
+```
+
+**Sum of indices using `$key`**
+
+```
+["a", "b", "c"].reduce($this, 0, $acc + $key)
+// 3
 ```
 
 **Chained with other expressions**

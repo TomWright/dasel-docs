@@ -10,7 +10,7 @@ Returns `true` if any element in an array matches the given predicate. This is a
 
 #### Arguments
 
-* **predicate** - A boolean expression evaluated against each element. Use `$this` to refer to the current element.
+* **predicate** - A boolean expression evaluated against each element. Use `$this` to refer to the current element and `$key` to refer to the current index.
 
 #### Examples
 

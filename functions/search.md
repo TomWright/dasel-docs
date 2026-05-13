@@ -32,6 +32,7 @@ Commonly used predicate functions include:
 
 * `has("KEY")` — true if the node has the given key.
 * `$this == VALUE` — true if the node equals `VALUE` .
+* `$key == "KEY"` — true if the current key/index matches. For maps, `$key` is a string; for arrays, `$key` is an integer.
 
 > 📌 Check the functions documentation for a full list.
 
@@ -119,6 +120,24 @@ Output:
         "id": 2,
         "name": "Bob"
     }
+]
+```
+
+***
+
+#### 4. Search by Key Name Using `$key`
+
+Find the value stored under a specific key:
+
+```bash
+echo '{"other": 1, "target": 42}' | dasel -i json 'search($key == "target")'
+```
+
+Output:
+
+```json
+[
+    42
 ]
 ```
 

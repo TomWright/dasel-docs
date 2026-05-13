@@ -10,7 +10,7 @@ Counts the number of elements in an array that match the given predicate. This i
 
 #### Arguments
 
-* **predicate** - A boolean expression evaluated against each element. Use `$this` to refer to the current element.
+* **predicate** - A boolean expression evaluated against each element. Use `$this` to refer to the current element and `$key` to refer to the current index.
 
 #### Examples
 

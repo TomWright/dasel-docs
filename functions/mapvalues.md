@@ -10,7 +10,7 @@ The `mapValues` function transforms all values of a map/object while preserving 
 
 #### Arguments
 
-* **expr** - An expression evaluated against each value. Use `$this` to refer to the current value.
+* **expr** - An expression evaluated against each value. Use `$this` to refer to the current value and `$key` to refer to the current key name.
 
 #### Examples
 
@@ -33,6 +33,13 @@ The `mapValues` function transforms all values of a map/object while preserving 
 ```
 {"x": "hello", "y": "world"}.mapValues(toUpper())
 // {"x": "HELLO", "y": "WORLD"}
+```
+
+**Replace values with their key names using `$key`**
+
+```
+{"a": 1, "b": 2}.mapValues($key)
+// {"a": "a", "b": "b"}
 ```
 
 **CLI usage**

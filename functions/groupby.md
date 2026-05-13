@@ -10,7 +10,7 @@ The `groupBy` function groups the elements of an array by a derived key expressi
 
 #### Arguments
 
-* **expr** - An expression evaluated against each element to determine its group key. The result must be a string, int, float, or bool. Use `$this` to refer to the current element.
+* **expr** - An expression evaluated against each element to determine its group key. The result must be a string, int, float, or bool. Use `$this` to refer to the current element and `$key` to refer to the current index.
 
 #### Examples
 

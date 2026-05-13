@@ -119,6 +119,12 @@ Output:
 
 ***
 
+### The `$key` variable
+
+During recursive descent, the `$key` variable is set to the current map key (string) or array index (int) at each level of traversal. This is available when using `search` predicates in combination with recursive descent.
+
+***
+
 ### Notes
 
 * `..` is shorthand for recursive search by key or index.

@@ -11,6 +11,18 @@ The `map` function can be used to transform the contents of an array. It's funct
 // [2, 3, 4]
 ```
 
+### Using `$key` for the index
+
+```
+[10, 20, 30].map($key)
+// [0, 1, 2]
+```
+
+```
+[10, 20, 30].map($key + $this)
+// [10, 21, 32]
+```
+
 ### Extracting nested properties
 
 ```

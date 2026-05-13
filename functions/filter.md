@@ -10,7 +10,7 @@ The `filter` function filters the contents of an array, returning only elements 
 
 #### Arguments
 
-* **predicate** - A boolean expression evaluated against each element. Use `$this` to refer to the current element.
+* **predicate** - A boolean expression evaluated against each element. Use `$this` to refer to the current element and `$key` to refer to the current index.
 
 #### Examples
 
@@ -36,6 +36,13 @@ The `filter` function filters the contents of an array, returning only elements 
 
 ```bash
 $ cat users.json | dasel -i json 'users.filter(active == true).map(name)'
+```
+
+**Filter by index using `$key`**
+
+```
+[10, 20, 30, 40, 50].filter($key >= 2)
+// [30, 40, 50]
 ```
 
 **Chained with other functions**
