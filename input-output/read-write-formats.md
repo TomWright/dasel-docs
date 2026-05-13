@@ -11,5 +11,6 @@ Dasel supports a number of file formats out of the box.
 | toml   | :grey\_question:     | :grey\_question:     | <p>Generally working.<br>Unsorted maps.</p>                                                                                                                                              |
 | xml    | :white\_check\_mark: | :white\_check\_mark: | <p><a href="read-writer-flags.md#xml">Flags available.</a><br>Attribute names are prefixed with a <code>-</code> and should be accessed using <a href="../functions/get.md">get</a>.</p> |
 | ini    | :white\_check\_mark: | :white\_check\_mark: | Limited to basic sections + key values.                                                                                                                                                  |
+| kdl    | :white\_check\_mark: | :white\_check\_mark: | <p><a href="read-writer-flags.md#kdl">Flags available.</a><br>Supports both v1 and v2 syntax. See <a href="kdl.md">KDL format</a> for data model details.</p>                           |
 | dasel  | :white\_check\_mark: | :x:                  | This is not a real format, but instead allows dasel literals to be parsed on input strings.                                                                                              |
 

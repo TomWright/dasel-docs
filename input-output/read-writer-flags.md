@@ -29,3 +29,9 @@ Some parsers accept options that aren't available in others, for this we use rea
 | ---------- | ---------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | read       | hcl-block-format | array  | HCL block contents usually expand to an array when duplicate labels are defined on another block. Setting this to `array` will force blocks to always be an array of values, even when there are no duplicates. |
 
+### KDL
+
+| Read/Write | Name        | Values | Description                                                                                                                                                        |
+| ---------- | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| write      | kdl-version | 1, 2   | Controls the output KDL version. Version `2` (default) uses `#true`, `#false`, `#null`. Version `1` uses bare `true`, `false`, `null`. |
+

@@ -33,6 +33,7 @@
 * [Modifying data](input-output/modifying-data.md)
 * [Variables](input-output/variables.md)
 * [Read/Writer flags](input-output/read-writer-flags.md)
+* [KDL format](input-output/kdl.md)
 * [Editing files in place](input-output/editing-files-in-place.md)
 
 ## Functions
