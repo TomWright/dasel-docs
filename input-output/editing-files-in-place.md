@@ -2,21 +2,21 @@
 
 With V3, built-in file editing was removed to allow for re-evaluation. In the meantime, you can edit files in place using shell redirection and a temporary file.
 
----
+***
 
 ## Basic pattern
 
 ```bash
-dasel -i <format> --root '<query>' < file > file.tmp && mv file.tmp file
+dasel -i <format> '<query>' < file > file.tmp && mv file.tmp file
 ```
 
 1. Read the file into dasel via `< file`
 2. Redirect the output to a temporary file via `> file.tmp`
 3. Move the temporary file over the original via `mv file.tmp file`
 
-It is important to use the `--root` flag — this ensures dasel outputs the entire document, not just the modified value.
+If assigning a single value, it is important to use the `--root` flag — this ensures dasel outputs the entire document, not just the modified value.
 
----
+***
 
 ## Examples
 
@@ -55,7 +55,7 @@ dasel-edit() {
 dasel-edit json 'name = "Tom"' config.json
 ```
 
----
+***
 
 ## Why use a temporary file?
 
